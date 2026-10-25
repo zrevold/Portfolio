@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script>document.documentElement.className="js"</script>
+<!-- ===== SEO: CAMBIÁ [MI NOMBRE] y la descripción ===== -->
+<title>[MI NOMBRE] | Video Editor &amp; Motion Designer</title>
+<meta name="description" content="Portfolio de [MI NOMBRE], editor de video y motion designer. AMV, edits, reels y motion graphics.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[MI NOMBRE] | Video Editor &amp; Motion Designer">
+<meta property="og:description" content="Mirá mis trabajos de edición de video y motion graphics.">
+<!-- CAMBIÁ: subí una imagen og.jpg (1200x630) junto a este archivo -->
+<meta property="og:image" content="og.jpg">
+<meta name="theme-color" content="#080808">
+<!-- FAVICON: reemplazá por <link rel="icon" href="favicon.png"> si tenés uno propio -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23080808'/%3E%3Cpath d='M12 9l11 7-11 7z' fill='%238f9bff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080808;--bg2:#101011;--fg:#f1f1ee;--mut:#97978f;--ln:#242426;--ac:#8f9bff;--pad:clamp(1.25rem,5vw,4rem);--f:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--fg);font:400 1rem/1.65 var(--f);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video,iframe{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:4px}
+.w{max-width:1240px;margin:auto;padding:clamp(4.5rem,10vw,8rem) var(--pad)}
+section+section,footer{border-top:1px solid var(--ln)}
+h1,h2,h3{font-weight:800;letter-spacing:-.035em;line-height:1.02}
+h2{font-size:clamp(2.2rem,6vw,4.6rem);max-width:14ch}
+.lead{color:var(--mut);max-width:52ch;margin-top:1.25rem}
+.head{margin-bottom:clamp(2rem,5vw,3.5rem)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.75rem 1.6rem;border:1px solid var(--ln);border-radius:100px;font-weight:600;transition:background .25s,color .25s,border-color .25s,transform .25s}
+.btn:hover{border-color:var(--fg);transform:translateY(-2px)}
+.btn.p{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn.p:hover{background:var(--ac);border-color:var(--ac)}
+.note{display:inline-block;margin-top:1rem;padding:.35rem .8rem;border:1px dashed #5b5b52;border-radius:6px;font:.78rem var(--mono);color:#c9b97a}
+.demo-off .note,.demo-off .tag{display:none}
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:rgba(8,8,8,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--ln)}
+.nav{max-width:1240px;margin:auto;padding:.7rem var(--pad);display:flex;align-items:center;gap:1.5rem;min-height:64px}
+.logo{font-weight:800;letter-spacing:-.03em;font-size:1.2rem;margin-right:auto}
+.nav ul{display:flex;gap:1.75rem}
+.nav ul a{color:var(--mut);font-size:.95rem;transition:color .2s}
+.nav ul a:hover{color:var(--fg)}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--ln);border-radius:50%;place-items:center}
+.burger i{display:block;width:16px;height:1.5px;background:var(--fg);box-shadow:0 5px var(--fg),0 -5px var(--fg)}
+@media(max-width:860px){.burger{display:grid}.nav .btn{display:none}
+.nav ul{position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--ln);padding:.5rem var(--pad) 1.2rem;display:none}
+.nav ul.open{display:flex}.nav ul a{display:block;padding:.9rem 0;font-size:1.2rem;color:var(--fg);border-bottom:1px solid var(--ln)}}
+/* HERO */
+.hero{min-height:calc(100svh - 65px);display:flex;flex-direction:column;justify-content:center}
+.hero .w{width:100%;padding-top:clamp(2.5rem,6vw,5rem);padding-bottom:2.5rem}
+.kick{font-size:.8rem;letter-spacing:.18em;color:var(--ac);font-weight:600}
+h1{font-size:clamp(2.9rem,10.5vw,8.6rem);margin:1.1rem 0 1.5rem;max-width:12ch}
+.hero p.lead{font-size:1.1rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+/* timeline: elemento memorable del hero */
+.tl{margin-top:clamp(2.5rem,6vw,4rem);position:relative;border-top:1px solid var(--ln);padding-top:.9rem}
+.tl-top{display:flex;justify-content:space-between;font:.75rem var(--mono);color:var(--mut);margin-bottom:.8rem}
+#tc{color:var(--ac)}
+.tr{position:relative;height:46px;margin-bottom:6px}
+.tr span{position:absolute;top:0;bottom:0;border:1px solid #34343a;border-radius:6px;background:linear-gradient(90deg,#17171b,#101013)}
+.tr.b span{background:repeating-linear-gradient(90deg,#14141a 0 3px,#1a1a22 3px 6px)}
+.ph{position:absolute;top:-2px;bottom:0;left:0;width:1px;background:var(--ac);box-shadow:0 0 14px var(--ac);animation:scrub 9s linear infinite}
+.ph:before{content:"";position:absolute;top:-3px;left:-5px;border:5.5px solid transparent;border-top:8px solid var(--ac)}
+@keyframes scrub{to{left:100%}}
+/* botón de play */
+.play{width:78px;height:78px;border-radius:50%;border:1px solid var(--fg);background:rgba(8,8,8,.45);backdrop-filter:blur(6px);display:grid;place-items:center;transition:transform .3s,background .3s,color .3s}
+.play:before{content:"";border:10px solid transparent;border-left:16px solid currentColor;margin-left:7px}
+.pc:hover .play{transform:scale(1.1);background:var(--ac);color:var(--bg);border-color:var(--ac)}
+/* PROYECTOS */
+.pg{display:grid;gap:1.75rem .9rem;grid-template-columns:1fr 1fr;grid-auto-flow:dense;align-items:start}
+.pc{grid-column:span 2}.pc.v{grid-column:span 1}
+@media(min-width:680px){.pg{grid-template-columns:repeat(12,1fr);gap:2rem 1.25rem}.pc,.pc.v{grid-column:span 6}}
+@media(min-width:760px){.pc.v{grid-column:span 3}}
+@media(min-width:1000px){.pc.w7{grid-column:span 7}.pc.w5{grid-column:span 5}}
+.pc{text-align:left;display:block;width:100%}
+.v .pm{flex-direction:column;gap:.1rem}
+.v .pm h3{font-size:clamp(1rem,1.7vw,1.35rem)}
+.pc.v p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:.88rem}
+@media(max-width:679px){.pc.v p{display:none}.v .th .play{width:46px;height:46px}}
+.pc .th{position:relative;aspect-ratio:16/10;border:1px solid var(--ln);border-radius:14px;overflow:hidden;display:grid;place-items:center;transition:border-color .3s}
+.pc:hover .th{border-color:var(--ac)}
+.th>*{grid-area:1/1}
+.th img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.pc:hover .th img{transform:scale(1.04)}
+.th .big{font-size:clamp(4rem,12vw,8rem);font-weight:800;color:rgba(255,255,255,.07);letter-spacing:-.05em;align-self:center}
+.th .tag{position:absolute;top:.8rem;left:.8rem;padding:.2rem .6rem;border-radius:100px;background:rgba(8,8,8,.7);border:1px solid var(--ln);font:.7rem var(--mono);color:#c9b97a}
+.th .play{width:62px;height:62px;opacity:0;transition:opacity .3s,transform .3s,background .3s}
+.pc:hover .play,.pc:focus-visible .play{opacity:1}
+@media(hover:none){.th .play{opacity:1}}
+.pm{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;margin-top:.9rem}
+.pm h3{font-size:1.35rem;letter-spacing:-.02em}
+.pm span{color:var(--ac);font-size:.85rem;white-space:nowrap}
+.pc p{color:var(--mut);font-size:.95rem;margin-top:.2rem}
+dialog{width:min(1000px,94vw);margin:auto;background:#000;color:var(--fg);border:1px solid var(--ln);border-radius:14px;padding:0;overflow:hidden}
+dialog::backdrop{background:rgba(0,0,0,.88)}
+dialog[open]{animation:pop .3s ease}
+@keyframes pop{from{opacity:0;transform:scale(.97)}}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:.6rem 1rem;border-bottom:1px solid var(--ln)}
+.dh button{min-width:44px;min-height:44px;font-size:1.5rem}
+#mv{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;color:var(--mut);padding:1rem}
+#mv iframe,#mv video{width:100%;height:100%;border:0;background:#000}
+#mv.vt{width:min(100%,calc((100vh - 8rem)*9/16));width:min(100%,calc((100dvh - 8rem)*9/16));aspect-ratio:9/16;margin:auto}
+#mv:has(iframe),#mv:has(video){padding:0}
+#mv:not(.vt){width:min(100%,calc((100vh - 6rem)*16/9));width:min(100%,calc((100dvh - 6rem)*16/9));margin:auto}
+/* SERVICIOS */
+.sg{display:grid;gap:1px;background:var(--ln);border:1px solid var(--ln);border-radius:14px;overflow:hidden;grid-template-columns:1fr}
+@media(min-width:680px){.sg{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.sg{grid-template-columns:repeat(3,1fr)}}
+.sv{background:var(--bg);padding:2rem 1.75rem;transition:background .3s}
+.sv:hover{background:var(--bg2)}
+.sv .n{font:.8rem var(--mono);color:var(--ac)}
+.sv h3{font-size:1.5rem;margin:1.2rem 0 .6rem;letter-spacing:-.02em}
+.sv p{color:var(--mut);font-size:.95rem}
+.sv li,.pk li{color:#bdbdb5;font-size:.9rem;padding:.35rem 0 .35rem 1.2rem;border-top:1px solid var(--ln);position:relative}
+.sv ul{margin-top:1.2rem}
+.sv li:before,.pk li:before{content:"";position:absolute;left:0;top:1.05em;width:6px;height:1px;background:var(--ac)}
+/* PRECIOS */
+.kg{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media(min-width:900px){.kg{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.pk{border:1px solid var(--ln);border-radius:16px;padding:2rem 1.75rem;display:flex;flex-direction:column;background:var(--bg2)}
+.pk.f{border-color:var(--ac);background:linear-gradient(180deg,#14141f,var(--bg2))}
+.pk h3{font-size:1rem;letter-spacing:.14em;color:var(--mut)}
+.pr{font-size:clamp(2.6rem,5vw,3.6rem);font-weight:800;letter-spacing:-.04em;margin:.8rem 0 1.2rem}
+.pr small{font-size:1rem;color:var(--mut);font-weight:400;letter-spacing:0}
+.pk ul{margin-bottom:1.5rem;flex:1}
+.pk .mt{display:flex;gap:1.5rem;font-size:.85rem;color:var(--mut);margin-bottom:1.5rem}
+.pk .mt b{display:block;color:var(--fg);font-size:1rem}
+.cust{margin-top:1.25rem;border:1px dashed #3a3a40;border-radius:16px;padding:1.75rem;display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between}
+.cust p{color:var(--mut);max-width:56ch}
+.fine{color:var(--mut);font-size:.85rem;margin-top:1.25rem}
+/* SOBRE MI */
+.ab{display:grid;gap:clamp(2rem,6vw,5rem);grid-template-columns:1fr}
+@media(min-width:860px){.ab{grid-template-columns:5fr 7fr;align-items:center}}
+.av{aspect-ratio:1/1;border:1px solid var(--ln);border-radius:16px;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at 30% 20%,#1e1e2e,#0c0c0e);max-width:440px}
+.av img{width:100%;height:100%;object-fit:cover}
+.av span{font-size:6rem;font-weight:800;color:rgba(255,255,255,.12)}
+.ab p{color:#c4c4bc;margin-top:1.1rem;max-width:58ch}
+.tools{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.75rem}
+.tools li{padding:.4rem 1rem;border:1px solid var(--ln);border-radius:100px;font-size:.9rem;color:var(--mut)}
+/* CONTACTO */
+.ct h2{max-width:11ch;font-size:clamp(2.8rem,9vw,7rem)}
+footer .f{max-width:1240px;margin:auto;padding:2.5rem var(--pad);display:flex;flex-wrap:wrap;gap:1.5rem 3rem;justify-content:space-between;align-items:center;color:var(--mut);font-size:.9rem}
+footer ul{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem}
+footer a:hover{color:var(--fg)}
+/* animación de entrada (sutil) */
+.js .rv{opacity:0;transition:opacity .9s ease}
+.js .rv.in{opacity:1}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.js .rv{opacity:1}}
+</style>
+</head>
+<body>
+<header><nav class="nav" aria-label="Principal">
+  <a class="logo" href="#inicio" data-brand></a>
+  <ul id="menu">
+    <li><a href="#inicio">Inicio</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#servicios">Servicios</a></li>
+    <li><a href="#precios">Precios</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a class="btn p" href="#contacto">Trabajemos juntos</a>
+  <button class="burger" id="bg" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><i></i></button>
+</nav></header>
+
+<main>
+<section id="inicio" class="hero"><div class="w">
+  <p class="kick">VIDEO EDITOR &amp; MOTION DESIGNER</p>
+  <h1 id="h1"></h1>
+  <p class="lead" id="hd"></p>
+  <div class="cta"><a class="btn p" href="#portfolio">Ver mis trabajos</a><a class="btn" href="#contacto">Contactarme</a></div>
+  <div class="tl" aria-hidden="true">
+    <div class="tl-top"><span>SECUENCIA 01</span><span id="tc">00:00:00:00</span></div>
+    <div class="tr"><span style="left:0;width:22%"></span><span style="left:23%;width:31%"></span><span style="left:55%;width:14%"></span><span style="left:70%;width:30%"></span></div>
+    <div class="tr b" style="height:24px"><span style="left:4%;width:40%"></span><span style="left:48%;width:52%"></span></div>
+    <div class="ph" id="ph"></div>
+  </div>
+</div></section>
+
+<section id="portfolio"><div class="w">
+  <div class="head rv"><h2>Trabajos seleccionados</h2><p class="lead">Una muestra de proyectos recientes. Tocá uno para verlo.</p><span class="note">Contenido de demostración: reemplazalo en CONFIG</span></div>
+  <div class="pg" id="pg"></div>
+</div></section>
+
+<section id="servicios"><div class="w">
+  <div class="head rv"><h2>Servicios</h2><p class="lead">Lo que puedo hacer por tu proyecto.</p><span class="note">Servicios de ejemplo: editalos en CONFIG</span></div>
+  <div class="sg rv" id="sg"></div>
+</div></section>
+
+<section id="precios"><div class="w">
+  <div class="head rv"><h2>Precios en USD</h2><p class="lead">Elegí un paquete y escribime directo por WhatsApp.</p><span class="note">Precios de ejemplo: poné los tuyos en CONFIG</span></div>
+  <div class="kg rv" id="kg"></div>
+  <div class="cust rv"><div><h3>Proyecto personalizado</h3><p>¿Necesitás algo distinto? Contame qué tenés en mente y armamos un presupuesto a medida.</p></div><button class="btn p" data-wa="Hola, quisiera un presupuesto para un proyecto personalizado">Pedir presupuesto</button></div>
+  <p class="fine">Los precios son orientativos. Los proyectos complejos pueden requerir un presupuesto personalizado.</p>
+</div></section>
+
+<section id="sobre-mi"><div class="w ab">
+  <div class="av rv" id="av"></div>
+  <div class="rv"><h2>Detrás de cada edición hay una idea</h2><div id="ab"></div><ul class="tools" id="tools" aria-label="Programas que uso"></ul></div>
+</div></section>
+
+<section id="contacto" class="ct"><div class="w">
+  <h2 class="rv">¿Tenés un proyecto en mente?</h2>
+  <p class="lead rv">Contame tu idea y hagámosla realidad.</p>
+  <div class="cta rv"><button class="btn p" data-wa="Hola, vi tu portfolio y me gustaría consultar por una edición">Escribime por WhatsApp</button><a class="btn" data-ig target="_blank" rel="noopener">Seguime en Instagram</a></div>
+</div></section>
+</main>
+
+<footer><div class="f">
+  <div><b data-brand style="color:var(--fg)"></b><br><small>© <span id="yr"></span> <span data-brand></span>. Todos los derechos reservados.</small></div>
+  <ul><li><a href="#portfolio">Portfolio</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#precios">Precios</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#contacto">Contacto</a></li></ul>
+  <ul><li><a data-ig target="_blank" rel="noopener">Instagram</a></li><li><button data-wa="Hola, vi tu portfolio y me gustaría consultar por una edición">WhatsApp</button></li></ul>
+</div></footer>
+
+<dialog id="md" aria-label="Reproductor de video"><div class="dh"><strong id="mt"></strong><button id="mx" aria-label="Cerrar">×</button></div><div id="mv"></div></dialog>
+
+<script>
+/* =====================================================================
+   CONFIG: TODO LO QUE TENÉS QUE EDITAR ESTÁ ACÁ (solo cambiá los textos
+   entre comillas). No toques nada fuera de este bloque.
+   ===================================================================== */
+const CONFIG = {
+  mostrarAvisosDeEjemplo: false,   // poné false cuando termines de personalizar (oculta avisos y etiquetas "DEMO")
+  marca: "Valentino",           // tu nombre o marca
+  titulo: "Transformo ideas en experiencias visuales",
+  descripcion: "Edito con ritmo, cuido cada detalle y busco que cada corte tenga una intención. Calidad y creatividad en cada proyecto.",
+  whatsapp: "543815284315",       // SOLO números con código de país, sin + ni espacios. Ej Argentina: 5493811234567
+  instagram: "zrevold",           // tu usuario sin @
+  avatar: "img/PFP.jpg",                     // tu foto, ej: "img/yo.jpg". Vacío = inicial de tu nombre
+  sobreMi: [                      // cada texto entre comillas es un párrafo
+    "Soy Valentino, editor de video y motion designer. Hace años que me dedico a la edición y trabajo con After Effects, Premiere Pro, Photoshop, DaVinci Resolve y Blender para darle forma a cada idea.",
+    "Me adapto a lo que necesita cada cliente: escucho, propongo y ajusto hasta lograr el resultado que buscás. La comunicación es clara durante todo el proceso, la entrega es rápida y segura, y las revisiones necesarias están incluidas."
+  ],
+  programas: ["After Effects", "Premiere Pro", "DaVinci Resolve",  "Photoshop" ], // borrá los que no uses
+  proyectos: [
+    // video: link de YouTube/Vimeo, o archivo local ("videos/mi-edit.mp4"). Si está vacío se muestra un aviso.
+    // portada: imagen ("img/portada1.jpg"). Si está vacía y el video es de YouTube, se usa su miniatura; si no, un placeholder.
+    // formato (opcional): "vertical" para reels (9:16), "horizontal" (por defecto) o una proporción propia como "4/5" o "1/1".
+    { titulo: "Reel editado", categoria: "Reel", descripcion: "Reel con subtítulos, zooms inteligentes, recortes precisos, efectos y SFX para mantener el ritmo y la atención en cada corte.", video: "https://vimeo.com/1239276926?fl=tl&fe=ec", portada: "img/Reel 2 Portada.png", formato: "vertical" },
+    { titulo: "Reel editado", categoria: "Reel", descripcion: "Reel con subtítulos, zooms inteligentes, recortes precisos, efectos y SFX para mantener el ritmo y la atención en cada corte.", video: "https://vimeo.com/1239276925?fl=tl&fe=ec", portada: "img/Reel 1 Portada.png", formato: "vertical" },
+    { titulo: "Reel editado", categoria: "Reel", descripcion: "Reel con subtítulos, zooms inteligentes, recortes precisos, efectos y SFX para mantener el ritmo y la atención en cada corte.", video: "https://vimeo.com/1239276924?fl=tl&fe=ec", portada: "img/Reel 3 Portada.png", formato: "vertical" },
+    { titulo: "Reel editado", categoria: "Reel", descripcion: "Reel con subtítulos, zooms inteligentes, recortes precisos, efectos y SFX para mantener el ritmo y la atención en cada corte.", video: "https://vimeo.com/1239284901?fl=tl&fe=ec", portada: "img/Reel 4 Portada.png", formato: "vertical" },
+    { titulo: "MoGraph editado", categoria: "Motion Graphics", descripcion: "Gráficos animados con títulos, transiciones y elementos visuales diseñados para reforzar el mensaje y darle personalidad al video.", video: "https://vimeo.com/1239275576?fl=tl&fe=ec", portada: "img/Mograph Portada.png" },
+    { titulo: "Edición con Mixed Media", categoria: "Mixed Media", descripcion: "Edición que mezcla imagen real, gráficos animados y texturas para crear una estética única y llamativa.", video: "https://vimeo.com/1239275088?fl=tl&fe=ec", portada: "img/Mixedmedia portada.png" },
+  
+  ],
+  servicios: [
+    { nombre: "Edición de video", texto: "Montaje, ritmo y color para tus videos.", incluye: ["Cortes y ritmo", "Corrección de color", "Mezcla de audio"] },
+    { nombre: "AMV y edits", texto: "Edits con música, sincronía y estilo.", incluye: ["Sincronía con el beat", "Transiciones", "Efectos"] },
+    { nombre: "Reels y redes", texto: "Contenido vertical pensado para redes.", incluye: ["Formato 9:16", "Subtítulos", "Versiones por red"] },
+    { nombre: "Motion graphics", texto: "Gráficos animados para dar identidad.", incluye: ["Títulos animados", "Lower thirds", "Logos animados"] },
+    { nombre: "Efectos y animaciones", texto: "VFX y animación para escenas puntuales.", incluye: ["Compositing", "Tracking", "Efectos visuales"] },
+    { nombre: "Proyectos personalizados", texto: "Un trabajo a medida de tu idea.", incluye: ["Consulta inicial", "Propuesta", "Presupuesto propio"] }
+  ],
+  paquetes: [
+    { nombre: "BASIC", precio: "$10", entrega: "2 días", revisiones: "1", destacado: false, incluye: ["Edición simple", "Música, zooms y subtítulos", "Entrega en Full HD"] },
+    { nombre: "STANDARD", precio: "$15", entrega: "2 días", revisiones: "2", destacado: true, incluye: ["Edición avanzada", "Efectos y transiciones", "Corrección de color", "Entrega en Full HD"] },
+    { nombre: "PREMIUM", precio: "$25", entrega: "4 días", revisiones: "4", destacado: false, incluye: ["Edición completa", "Motion graphics", "Diseño de sonido", "Entrega en 4K"] }
+  ]
+};
+/* ============================ FIN DE CONFIG ============================ */
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const C=CONFIG;
+if(!C.mostrarAvisosDeEjemplo)document.body.classList.add("demo-off");
+$$("[data-brand]").forEach(e=>e.textContent=C.marca);
+document.title=C.marca+" | Video Editor & Motion Designer";
+$("#yr").textContent=new Date().getFullYear();
+$("#h1").textContent=C.titulo; $("#hd").textContent=C.descripcion;
+$("#ab").innerHTML=C.sobreMi.map(p=>`<p>${esc(p)}</p>`).join("");
+$("#tools").innerHTML=C.programas.map(p=>`<li>${esc(p)}</li>`).join("");
+$("#av").innerHTML=C.avatar?`<img src="${esc(C.avatar)}" alt="Foto de ${esc(C.marca)}" loading="lazy">`:`<span aria-hidden="true">${esc(C.marca.replace(/[\[\]]/g,"").charAt(0)||"V")}</span>`;
+
+/* Servicios y paquetes */
+$("#sg").innerHTML=C.servicios.map((s,i)=>`<article class="sv"><span class="n">${String(i+1).padStart(2,"0")}</span><h3>${esc(s.nombre)}</h3><p>${esc(s.texto)}</p><ul>${s.incluye.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("");
+$("#kg").innerHTML=C.paquetes.map(p=>`<article class="pk${p.destacado?" f":""}"><h3>${esc(p.nombre)}</h3><div class="pr">${esc(p.precio)} <small>USD</small></div><ul>${p.incluye.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="mt"><span>Entrega<b>${esc(p.entrega)}</b></span><span>Revisiones<b>${esc(p.revisiones)}</b></span></div><button class="btn ${p.destacado?"p":""}" data-wa="Hola, me interesa el paquete ${esc(p.nombre)}. ¿Podemos hablar?">Solicitar este paquete</button></article>`).join("");
+
+/* Enlaces a redes (avisan si todavía no los configuraste) */
+const waOk=/^\d{8,15}$/.test(C.whatsapp), igOk=C.instagram&&C.instagram!=="TU_USUARIO";
+$$("[data-ig]").forEach(a=>{a.href=igOk?"https://instagram.com/"+C.instagram.replace("@",""):"#contacto";
+  if(!igOk)a.addEventListener("click",()=>alert("Configurá tu usuario de Instagram en CONFIG (campo instagram)."));});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-wa]");if(!b)return;
+  if(!waOk)return alert("Configurá tu número en CONFIG (campo whatsapp): solo números, con código de país.");
+  window.open("https://wa.me/"+C.whatsapp+"?text="+encodeURIComponent(b.dataset.wa.replace(/&amp;/g,"&")),"_blank","noopener");});
+
+/* Video: YouTube, Vimeo o archivo local */
+function info(u){if(!u)return null;let m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+  if(m)return{k:"f",src:"https://www.youtube-nocookie.com/embed/"+m[1]+"?autoplay=1&rel=0",thumb:"https://i.ytimg.com/vi/"+m[1]+"/hqdefault.jpg"};
+  m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);if(m)return{k:"f",src:"https://player.vimeo.com/video/"+m[1]+"?autoplay=1"};
+  return{k:"v",src:u};}
+function mount(box,u){const i=info(u);
+  if(!i){box.innerHTML='<p>Todavía no hay un video cargado. Agregá el link en CONFIG.</p>';return;}
+  box.innerHTML=i.k==="f"?`<iframe src="${esc(i.src)}" title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`:`<video src="${esc(i.src)}" controls playsinline autoplay preload="metadata"></video>`;}
+
+
+/* Proyectos + modal */
+let hc=0;
+$("#pg").innerHTML=C.proyectos.map((p,i)=>{const v=info(p.video),t=p.portada||(v&&v.thumb);
+  const hue=[250,215,280,190,310,230][i%6],vt=p.formato==="vertical",ar=vt?"9/16":(p.formato&&p.formato!=="horizontal"?p.formato:"16/10"),cl=vt?"v":(hc++%4%3?"w5":"w7");
+  return `<button class="pc ${cl} rv" data-i="${i}" aria-label="Ver ${esc(p.titulo)}"><div class="th" style="aspect-ratio:${esc(ar)};background:linear-gradient(135deg,hsl(${hue} 35% 13%),#0b0b0d)">${t?`<img src="${esc(t)}" alt="Portada de ${esc(p.titulo)}" loading="lazy">`:`<span class="big" aria-hidden="true">${String(i+1).padStart(2,"0")}</span>`}<span class="tag">DEMO</span><span class="play" aria-hidden="true"></span></div><div class="pm"><h3>${esc(p.titulo)}</h3><span>${esc(p.categoria)}</span></div><p>${esc(p.descripcion)}</p></button>`}).join("");
+const md=$("#md"),mv=$("#mv");
+$("#pg").addEventListener("click",e=>{const b=e.target.closest(".pc");if(!b)return;const p=C.proyectos[b.dataset.i];
+  $("#mt").textContent=p.titulo;mv.className=p.formato==="vertical"?"vt":"";mount(mv,p.video);md.showModal();});
+const close=()=>{md.close();mv.innerHTML=""};
+$("#mx").onclick=close;md.addEventListener("click",e=>{if(e.target===md)close()});md.addEventListener("cancel",()=>mv.innerHTML="");
+
+/* Menú móvil */
+const mn=$("#menu"),bg=$("#bg");
+bg.onclick=()=>{const o=mn.classList.toggle("open");bg.setAttribute("aria-expanded",o)};
+mn.addEventListener("click",e=>{if(e.target.tagName==="A"){mn.classList.remove("open");bg.setAttribute("aria-expanded","false")}});
+
+/* Aparición suave al desplazarse */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+$$(".rv").forEach(e=>io.observe(e));
+
+/* Timecode sincronizado con el playhead del hero */
+const tc=$("#tc"),t0=performance.now();
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches)(function tick(){const f=Math.floor(((performance.now()-t0)/1000%9)*24),p=n=>String(n).padStart(2,"0");
+  tc.textContent=`00:00:${p(Math.floor(f/24))}:${p(f%24)}`;requestAnimationFrame(tick)})();
+if(matchMedia("(prefers-reduced-motion:reduce)").matches)tc.textContent="00:00:00:00";
+</script>
+</body>
+</html>
