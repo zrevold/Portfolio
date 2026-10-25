@@ -9,7 +9,7 @@
 <meta name="description" content="Portfolio de Valentino, editor de video y motion designer. AMV, edits, reels y motion graphics.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Valentino | Video Editor &amp; Motion Designer">
-<meta property="og:description" content="Mirá mis trabajos de edición de video y motion graphics.">
+<meta property="og:description" content="Mira mis trabajos de edición de video y motion graphics.">
 <!-- CAMBIÁ: subí una imagen og.jpg (1200x630) junto a este archivo -->
 <meta property="og:url" content="https://zrevold.github.io/Portfolio/">
 <meta property="og:image" content="https://zrevold.github.io/Portfolio/img/PFP.jpg">
@@ -29,7 +29,7 @@ a{color:inherit;text-decoration:none}
 ul{list-style:none}
 button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
 :focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:4px}
-.w{max-width:1240px;margin:auto;padding:clamp(4.5rem,10vw,8rem) var(--pad)}
+.w{max-width:1240px;margin:auto;padding:clamp(3.5rem,8vw,6rem) var(--pad)}
 section+section,footer{border-top:1px solid var(--ln)}
 h1,h2,h3{font-weight:800;letter-spacing:-.035em;line-height:1.02}
 h2{font-size:clamp(2.2rem,6vw,4.6rem);max-width:14ch}
@@ -48,6 +48,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,8,.78);backdrop-filt
 .nav ul{display:flex;gap:1.75rem}
 .nav ul a{color:var(--mut);font-size:.95rem;transition:color .2s}
 .nav ul a:hover{color:var(--fg)}
+.lang{min-width:44px;min-height:44px;border:1px solid var(--ln);border-radius:50%;font-size:.8rem;font-weight:600;color:var(--mut);transition:color .2s,border-color .2s}
+.lang:hover{color:var(--fg);border-color:var(--fg)}
 .burger{display:none;width:44px;height:44px;border:1px solid var(--ln);border-radius:50%;place-items:center}
 .burger i{display:block;width:16px;height:1.5px;background:var(--fg);box-shadow:0 5px var(--fg),0 -5px var(--fg)}
 @media(max-width:860px){.burger{display:grid}.nav .btn{display:none}
@@ -99,6 +101,78 @@ h1{font-size:clamp(2.9rem,10.5vw,8.6rem);margin:1.1rem 0 1.5rem;max-width:12ch}
 .pm h3{font-size:1.35rem;letter-spacing:-.02em}
 .pm span{color:var(--ac);font-size:.85rem;white-space:nowrap}
 .pc p{color:var(--mut);font-size:.95rem;margin-top:.2rem}
+.lg{margin-top:2rem;border:1px solid var(--ln);border-radius:16px;background:var(--bg2)}
+.lg summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.2rem 1.5rem;min-height:68px;font-size:clamp(1.2rem,3vw,1.6rem);font-weight:800;letter-spacing:-.025em;transition:color .25s}
+.lg summary::-webkit-details-marker{display:none}
+.lg summary:hover{color:var(--ac)}
+.lg summary small{display:flex;align-items:center;gap:.8rem;font-size:.9rem;font-weight:400;letter-spacing:0;color:var(--mut)}
+.lg summary small:after{content:"+";display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--ln);border-radius:50%;font-size:1.3rem;line-height:1;color:var(--fg);transition:transform .3s,background .3s,border-color .3s}
+.lg[open] summary small:after{transform:rotate(45deg);background:var(--ac);border-color:var(--ac);color:var(--bg)}
+.lgg{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr);padding:0 1.5rem 1.5rem;animation:fadein .5s ease}
+@media(min-width:680px){.lgg{grid-template-columns:repeat(var(--c,4),1fr)}}
+@media(max-width:679px){.lgg>.lt:last-child:nth-child(odd){grid-column:1/-1}.lgg>.lt:last-child:nth-child(odd) .lb{aspect-ratio:2/1}}
+@keyframes fadein{from{opacity:0}}
+.lt{display:block;width:100%;text-align:left}
+button.lt{cursor:zoom-in}
+.lb{aspect-ratio:1/1;border:1px solid var(--ln);border-radius:12px;background:#0c0c0e;display:grid;place-items:center;overflow:hidden;transition:border-color .3s}
+button.lt:hover .lb{border-color:var(--ac)}
+.lb img{width:100%;height:100%;object-fit:contain;padding:1rem}
+.lb .big{font-size:clamp(2.5rem,7vw,4rem);font-weight:800;color:rgba(255,255,255,.07);letter-spacing:-.05em}
+.lt .cap{display:block;margin-top:.5rem;color:var(--mut);font-size:.88rem}
+#mv img{width:100%;height:100%;object-fit:contain}
+/* interactividad: escala y leve inclinación al pasar el cursor */
+.lb{position:relative}
+.pc .th,.lb,.av{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,1));transition:transform .25s ease-out,border-color .3s;will-change:transform}
+.pc:hover .th,.lt:hover .lb,.av:hover{--s:1.04;z-index:3}
+.pc:active .th,button.lt:active .lb{--s:.97}
+.pk,.pkc{transition:transform .3s ease,box-shadow .3s}
+.pk:hover,.pkc:hover{transform:translateY(-5px)}
+.btn:active{transform:scale(.97)}
+.nav ul a.on{color:var(--fg)}
+/* transiciones: aparición con desenfoque, pestañas y botón volver arriba */
+.js .rv{opacity:0;filter:blur(14px);transform:translateY(28px) scale(.98);transition:opacity .9s ease,filter .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;filter:none;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;filter:none;transform:none}}
+@media(prefers-reduced-motion:no-preference){.hero .w{opacity:calc(1 - var(--hp,0)*.85);filter:blur(calc(var(--hp,0)*10px));transform:translateY(calc(var(--hp,0)*-36px))}}
+.tabs{display:flex;gap:.5rem;overflow-x:auto;margin-bottom:2rem;padding-bottom:4px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;min-height:44px;padding:.5rem 1.3rem;border:1px solid var(--ln);border-radius:100px;color:var(--mut);font-weight:600;transition:background .25s,color .25s,border-color .25s}
+.tabs button:hover{color:var(--fg);border-color:var(--fg)}
+.tabs button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.pn:not(.on){display:none!important}
+.pn.on{animation:pnin .55s cubic-bezier(.2,.7,.2,1)}
+.pn.rp{margin-top:0}
+@keyframes pnin{from{opacity:0;filter:blur(12px);transform:translateY(14px)}}
+#up{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));width:48px;height:48px;border:1px solid var(--ln);border-radius:50%;background:rgba(16,16,17,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .3s,transform .3s,border-color .3s;z-index:40}
+#up.show{opacity:1;pointer-events:auto;transform:none}
+#up:hover{border-color:var(--ac)}
+#up:before{content:"";display:block;width:10px;height:10px;margin:auto;border-left:2px solid var(--fg);border-top:2px solid var(--fg);transform:translateY(3px) rotate(45deg)}
+/* rebotes al interactuar (curva con rebote: cubic-bezier(.34,1.56,.64,1)) */
+.btn{transition:background .25s,color .25s,border-color .25s,transform .45s cubic-bezier(.34,1.56,.64,1)}
+.lang{transition:color .2s,border-color .2s,transform .45s cubic-bezier(.34,1.56,.64,1)}
+.btn:active,.lang:active{transform:scale(.92)}
+.pc .th,.lb,.av{transition:transform .45s cubic-bezier(.34,1.4,.64,1),border-color .3s}
+.pk,.pkc{transition:transform .5s cubic-bezier(.34,1.56,.64,1),box-shadow .3s}
+.tabs button{transition:background .25s,color .25s,border-color .25s,transform .45s cubic-bezier(.34,1.56,.64,1)}
+.tabs button:active{transform:scale(.9)}
+.tabs button.on{animation:pop2 .5s cubic-bezier(.34,1.56,.64,1)}
+.pn.on{animation:pnin .7s cubic-bezier(.34,1.56,.64,1)}
+.js .rv{transition:opacity .9s ease,filter .9s ease,transform 1s cubic-bezier(.34,1.35,.64,1)}
+.lg summary small:after{transition:transform .55s cubic-bezier(.34,1.56,.64,1),background .3s,border-color .3s}
+.lg[open] .lt{animation:bin .65s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i,0)*70ms)}
+.sv .n{display:inline-block;transform-origin:left;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+.sv:hover .n{transform:scale(1.4)}
+#up{transition:opacity .3s,transform .6s cubic-bezier(.34,1.56,.64,1),border-color .3s}
+dialog[open]{animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
+@media(max-width:860px){.nav ul.open{animation:dropin .5s cubic-bezier(.34,1.56,.64,1)}}
+@keyframes pop{from{opacity:0;transform:scale(.8)}}
+@keyframes pnin{from{opacity:0;filter:blur(12px);transform:translateY(26px) scale(.95)}}
+@keyframes bin{from{opacity:0;transform:scale(.4) translateY(30px)}}
+@keyframes pop2{from{transform:scale(.8)}}
+@keyframes dropin{from{opacity:0;transform:translateY(-14px)}}
+/* el desenfoque ahora lo controla el scroll (JS), sin transiciones propias */
+.js .rv,.js .rv.in{opacity:1;filter:none;transform:none;transition:none}
+#sp{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--ac);transform:scaleX(0);transform-origin:left;z-index:60}
 dialog{width:min(1000px,94vw);margin:auto;background:#000;color:var(--fg);border:1px solid var(--ln);border-radius:14px;padding:0;overflow:hidden}
 dialog::backdrop{background:rgba(0,0,0,.88)}
 dialog[open]{animation:pop .3s ease}
@@ -143,8 +217,20 @@ dialog[open]{animation:pop .3s ease}
 .pkc{border:1px solid var(--ln);border-radius:16px;padding:1.5rem 1.75rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 1.5rem;background:var(--bg2)}
 .pkc h4{font-size:1.25rem;letter-spacing:-.02em}
 .pkc p{color:var(--mut);font-size:.9rem}
+#ytl .pkc>div:first-child{flex:1 1 320px}
+#adl .pkc{flex-direction:column;align-items:flex-start;justify-content:flex-start;flex-wrap:nowrap;gap:1.1rem}
+#adl .pkc>div:first-child{flex:1}
+.pp.ask{font-size:1.1rem;font-weight:600;color:var(--mut);letter-spacing:0}
+.chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+.chips li{padding:.3rem .8rem;border:1px solid var(--ln);border-radius:100px;font-size:.85rem;color:#bdbdb5}
 .pkc .pp{font-size:2rem;font-weight:800;letter-spacing:-.04em}
 .pkc .pp small{font-size:.95rem;color:var(--mut);font-weight:400;letter-spacing:0}
+/* destacado: luz que recorre el borde */
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+.pk.f,.pkc.hl{position:relative;border:1px solid rgba(143,155,255,.28);background:linear-gradient(180deg,#14141f,var(--bg2));box-shadow:0 0 44px -14px rgba(143,155,255,.5)}
+.pk.f:before,.pkc.hl:before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;pointer-events:none;background:conic-gradient(from var(--a),transparent 0 62%,var(--ac) 88%,#fff 100%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:orbit 4.5s linear infinite}
+@keyframes orbit{to{--a:360deg}}
+@media(prefers-reduced-motion:reduce){.pk.f:before,.pkc.hl:before{animation:none}}
 /* SOBRE MI */
 .ab{display:grid;gap:clamp(2rem,6vw,5rem);grid-template-columns:1fr}
 @media(min-width:860px){.ab{grid-template-columns:5fr 7fr;align-items:center}}
@@ -162,10 +248,12 @@ footer a:hover{color:var(--fg)}
 /* animación de entrada (sutil) */
 .js .rv{opacity:0;transition:opacity .9s ease}
 .js .rv.in{opacity:1}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.js .rv{opacity:1}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1}}
 </style>
 </head>
 <body>
+<div id="sp"></div>
+<button id="up" aria-label="Volver arriba"></button>
 <header><nav class="nav" aria-label="Principal">
   <a class="logo" href="#inicio" data-brand></a>
   <ul id="menu">
@@ -173,6 +261,7 @@ footer a:hover{color:var(--fg)}
     <li><a href="#precios">Precios</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#contacto">Contacto</a></li>
   </ul>
   <a class="btn p" href="#contacto">Trabajemos juntos</a>
+  <button class="lang" id="lg"></button>
   <button class="burger" id="bg" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><i></i></button>
 </nav></header>
 
@@ -191,8 +280,9 @@ footer a:hover{color:var(--fg)}
 </div></section>
 
 <section id="portfolio"><div class="w">
-  <div class="head rv"><h2>Trabajos seleccionados</h2><p class="lead">Una muestra de proyectos recientes. Tocá uno para verlo.</p><span class="note">Contenido de demostración: reemplazalo en CONFIG</span></div>
+  <div class="head rv"><h2>Trabajos seleccionados</h2><p class="lead">Una muestra de proyectos recientes. Toca uno para verlo.</p><span class="note">Contenido de demostración: reemplazalo en CONFIG</span></div>
   <div class="pg" id="pg"></div>
+  <details class="lg rv" id="lgd"><summary><span>Logotipos</span><small>Ver ejemplos</small></summary><div class="lgg" id="lgg"></div></details>
 </div></section>
 
 <section id="servicios"><div class="w">
@@ -201,11 +291,13 @@ footer a:hover{color:var(--fg)}
 </div></section>
 
 <section id="precios"><div class="w">
-  <div class="head rv"><h2>Precios en USD</h2><p class="lead">Los precios son por reel. Elegí un paquete y escribime directo por WhatsApp.</p><span class="note">Precios de ejemplo: poné los tuyos en CONFIG</span></div>
-  <div class="kg rv" id="kg"></div>
-  <div class="rp rv" id="rp"><h3>Packs de reels</h3><p class="lead">Si necesitás varios reels, elegí un pack.</p><div class="pkl" id="pkl"></div></div>
-  <div class="rp rv" id="yt"><h3>Videos para YouTube</h3><p class="lead">Se cobra por cada minuto de video.</p><div class="pkl" id="ytl"></div></div>
-  <div class="cust rv"><div><h3>Proyecto personalizado</h3><p>¿Necesitás algo distinto? Contame qué tenés en mente y armamos un presupuesto a medida.</p></div><button class="btn p" data-wa="Hola, quisiera un presupuesto para un proyecto personalizado">Pedir presupuesto</button></div>
+  <div class="head rv"><h2>Precios en USD</h2><p class="lead">Los precios son por reel. Elige un paquete y escríbeme directamente por WhatsApp.</p><span class="note">Precios de ejemplo: poné los tuyos en CONFIG</span></div>
+  <div class="tabs rv" id="tabs" role="tablist"><button class="on" role="tab" aria-selected="true" data-t="kg">Por reel</button><button role="tab" aria-selected="false" data-t="rp">Packs</button><button role="tab" aria-selected="false" data-t="yt">YouTube</button><button role="tab" aria-selected="false" data-t="ad">Publicidad</button></div>
+  <div class="kg pn on" id="kg"></div>
+  <div class="rp pn" id="rp"><h3>Packs de reels</h3><p class="lead">Si necesitas varios reels, elige un pack.</p><div class="pkl" id="pkl"></div></div>
+  <div class="rp pn" id="yt"><h3>Videos para YouTube</h3><p class="lead">Se cobra por cada minuto de video.</p><div class="pkl" id="ytl"></div></div>
+  <div class="rp pn" id="ad"><h3>Publicidad y logotipos</h3><p class="lead">Piezas gráficas y animadas para tu marca.</p><div class="pkl" id="adl"></div></div>
+  <div class="cust rv"><div><h3>Proyecto personalizado</h3><p>¿Necesitas algo distinto? Cuéntame qué tienes en mente y armamos un presupuesto a medida.</p></div><button class="btn p" data-wa="Hola, quisiera un presupuesto para un proyecto personalizado">Pedir presupuesto</button></div>
   <p class="fine">Los precios son orientativos. Los proyectos complejos pueden requerir un presupuesto personalizado.</p>
 </div></section>
 
@@ -215,16 +307,16 @@ footer a:hover{color:var(--fg)}
 </div></section>
 
 <section id="contacto" class="ct"><div class="w">
-  <h2 class="rv">¿Tenés un proyecto en mente?</h2>
-  <p class="lead rv">Contame tu idea y hagámosla realidad.</p>
-  <div class="cta rv"><button class="btn p" data-wa="Hola, vi tu portfolio y me gustaría consultar por una edición">Escribime por WhatsApp</button><a class="btn" data-ig target="_blank" rel="noopener">Seguime en Instagram</a></div>
+  <h2 class="rv">¿Tienes un proyecto en mente?</h2>
+  <p class="lead rv">Cuéntame tu idea y hagámosla realidad.</p>
+  <div class="cta rv"><button class="btn p" data-wa="Hola, vi tu portfolio y me gustaría consultar sobre una edición">Escríbeme por WhatsApp</button><a class="btn" data-ig target="_blank" rel="noopener">Sígueme en Instagram</a><a class="btn" data-tt target="_blank" rel="noopener">Sígueme en TikTok</a></div>
 </div></section>
 </main>
 
-<footer><div class="f">
+<footer><div class="f rv">
   <div><b data-brand style="color:var(--fg)"></b><br><small>© <span id="yr"></span> <span data-brand></span>. Todos los derechos reservados.</small></div>
   <ul><li><a href="#portfolio">Portfolio</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#precios">Precios</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#contacto">Contacto</a></li></ul>
-  <ul><li><a data-ig target="_blank" rel="noopener">Instagram</a></li><li><button data-wa="Hola, vi tu portfolio y me gustaría consultar por una edición">WhatsApp</button></li></ul>
+  <ul><li><a data-ig target="_blank" rel="noopener">Instagram</a></li><li><a data-tt target="_blank" rel="noopener">TikTok</a></li><li><button data-wa="Hola, vi tu portfolio y me gustaría consultar sobre una edición">WhatsApp</button></li></ul>
 </div></footer>
 
 <dialog id="md" aria-label="Reproductor de video"><div class="dh"><strong id="mt"></strong><button id="mx" aria-label="Cerrar">×</button></div><div id="mv"></div></dialog>
@@ -234,6 +326,12 @@ footer a:hover{color:var(--fg)}
    CONFIG: TODO LO QUE TENÉS QUE EDITAR ESTÁ ACÁ (solo cambiá los textos
    entre comillas). No toques nada fuera de este bloque.
    ===================================================================== */
+/* Idioma: usa el elegido con el botón ES/EN; si no hay, el del navegador (español = es, el resto = en) */
+let LANG;try{LANG=localStorage.getItem("lang")}catch(e){}
+LANG=LANG||(((navigator.languages&&navigator.languages[0])||navigator.language||"es").toLowerCase().startsWith("es")?"es":"en");
+document.documentElement.lang=LANG;
+function mix(a,b){if(Array.isArray(b)){if(Array.isArray(a)&&b.some(x=>x&&typeof x==="object"))return a.map((x,i)=>b[i]?mix(x,b[i]):x);return b}
+  if(b&&typeof b==="object"){const o=Object.assign({},a);for(const k in b)o[k]=mix(a&&a[k],b[k]);return o}return b}
 const CONFIG = {
   mostrarAvisosDeEjemplo: false,   // poné false cuando termines de personalizar (oculta avisos y etiquetas "DEMO")
   marca: "Valentino",           // tu nombre o marca
@@ -241,10 +339,11 @@ const CONFIG = {
   descripcion: "Edito con ritmo, cuido cada detalle y busco que cada corte tenga una intención. Calidad y creatividad en cada proyecto.",
   whatsapp: "543815284315",       // SOLO números con código de país, sin + ni espacios. Ej Argentina: 5493811234567
   instagram: "zrevold",           // tu usuario sin @
+  tiktok: "fixeni",               // tu usuario de TikTok sin @. Vacío = se ocultan los botones de TikTok
   avatar: "img/PFP.jpg",                     // tu foto, ej: "img/yo.jpg". Vacío = inicial de tu nombre
   sobreMi: [                      // cada texto entre comillas es un párrafo
     "Soy Valentino, editor de video y motion designer. Hace años que me dedico a la edición y trabajo con After Effects, Premiere Pro, Photoshop, DaVinci Resolve y Blender para darle forma a cada idea.",
-    "Me adapto a lo que necesita cada cliente: escucho, propongo y ajusto hasta lograr el resultado que buscás. La comunicación es clara durante todo el proceso, la entrega es rápida y segura, y las revisiones necesarias están incluidas."
+    "Me adapto a lo que necesita cada cliente: escucho, propongo y ajusto hasta lograr el resultado que buscas. La comunicación es clara durante todo el proceso, la entrega es rápida y segura, y las revisiones necesarias están incluidas."
   ],
   programas: ["After Effects", "Premiere Pro", "DaVinci Resolve",  "Photoshop" ], // borrá los que no uses
   proyectos: [
@@ -258,6 +357,16 @@ const CONFIG = {
     { titulo: "MoGraph editado", categoria: "Motion Graphics", descripcion: "Gráficos animados con títulos, transiciones y elementos visuales diseñados para reforzar el mensaje y darle personalidad al video.", video: "https://vimeo.com/1239275576?fl=tl&fe=ec", portada: "img/Mograph Portada.png" },
     { titulo: "Edición con Mixed Media", categoria: "Mixed Media", descripcion: "Edición que mezcla imagen real, gráficos animados y texturas para crear una estética única y llamativa.", video: "https://vimeo.com/1239275088?fl=tl&fe=ec", portada: "img/Mixedmedia portada.png" },
   
+  ],
+  logotipos: [   // ejemplos de logotipos (se abren con un click en "Logotipos"). imagen: ruta de tu archivo, ej "img/logo1.png". Vacío = espacio reservado. Con [] se oculta
+    { titulo: "Logotipo 1", imagen: "" },
+    { titulo: "Logotipo 2", imagen: "" },
+    { titulo: "Logotipo 3", imagen: "" },
+    { titulo: "Logotipo 4", imagen: "" },
+    { titulo: "Logotipo 5", imagen: "" },
+    { titulo: "Logotipo 6", imagen: "" },
+    { titulo: "Logotipo 7", imagen: "" },
+    { titulo: "Logotipo 8", imagen: "" }
   ],
   servicios: [
     { nombre: "Edición de video", texto: "Montaje, ritmo y color para tus videos.", incluye: ["Cortes y ritmo", "Corrección de color", "Mezcla de audio"] },
@@ -274,22 +383,85 @@ const CONFIG = {
   ],
   packs: [   // packs de varios reels (precio TOTAL del pack). Copiá la línea para agregar más. Con [] la sección se oculta
     { nombre: "Pack 10 reels BASIC", detalle: "10 reels con el nivel BASIC", precio: "$60" },
-    { nombre: "Pack 5 reels STANDARD", detalle: "5 reels con el nivel STANDARD", precio: "$50" },
-    { nombre: "Pack 10 reels STANDARD", detalle: "10 reels con el nivel STANDARD", precio: "$90" },
+    { nombre: "Pack 5 reels STANDARD", detalle: "5 reels con el nivel STANDARD", precio: "$50", destacado: true },
+    { nombre: "Pack 10 reels STANDARD", detalle: "10 reels con el nivel STANDARD", precio: "$90", destacado: true },
     { nombre: "Pack 10 reels PREMIUM", detalle: "10 reels con el nivel PREMIUM", precio: "$120" }
   ],
   youtube: {   // apartado "Videos para YouTube". Para ocultarlo, borrá este bloque entero
     nombre: "Edición de video para YouTube",
     detalle: "Edición de nivel medio a complejo.",
+    incluye: [   // qué puede incluir. Borrá lo que no ofrezcas y agregá lo que quieras
+      "Cortes y ritmo",
+      "Eliminación de silencios y errores",
+      "Música y efectos de sonido",
+      "Limpieza y mezcla de audio",
+      "Subtítulos",
+      "Transiciones y efectos",
+      "Corrección de color",
+      "Títulos y gráficos animados simples",
+      "Zooms y recursos de apoyo"
+    ],
     precio: "$4",
     unidad: "por minuto de video"
+  },
+  publicidad: [   // apartado "Publicidad y logotipos". precio: "" muestra "A consultar"; si ponés un precio (ej "$30") se muestra en USD. Con [] se oculta
+    { nombre: "Publicidades animadas", detalle: "Spots en estilo motion graphics con voz de fondo y muchos efectos creativos.", incluye: ["Estilo motion graphics", "Voz de fondo", "Efectos creativos"], precio: "", unidad: "" },
+    { nombre: "Diseño de logotipos", detalle: "Logotipos pensados para dar identidad a tu marca.", incluye: [], precio: "", unidad: "" },
+    { nombre: "Animación de logotipos", detalle: "Tu logo en movimiento, para videos, redes y publicidades.", incluye: [], precio: "", unidad: "" },
+    { nombre: "Diseño gráfico (flyers)", detalle: "Diseño de flyers y piezas gráficas para tu marca.", incluye: [], precio: "", unidad: "" }
+  ],
+  /* VERSIÓN EN INGLÉS: va en el mismo orden que arriba (proyectos, servicios, paquetes, packs). Solo se escribe lo que cambia:
+     precios, videos, portadas y formatos se toman de la versión en español. Si agregás un proyecto/servicio nuevo, sumá su traducción en la misma posición. */
+  en: {
+    titulo: "I turn ideas into visual experiences",
+    descripcion: "I edit with rhythm, care about every detail and make sure every cut has a purpose. Quality and creativity in every project.",
+    sobreMi: [
+      "I’m Valentino, a video editor and motion designer. I’ve been editing for years and work with After Effects, Premiere Pro, Photoshop, DaVinci Resolve and Blender to bring each idea to life.",
+      "I adapt to what each client needs: I listen, propose and refine until you get the result you’re after. Communication stays clear throughout the process, delivery is fast and reliable, and the necessary revisions are included."
+    ],
+    proyectos: [
+      ...Array(4).fill({ titulo: "Edited reel", categoria: "Reel", descripcion: "Reel with subtitles, smart zooms, precise cuts, effects and SFX to keep the rhythm and attention on every cut." }),
+      { titulo: "Edited MoGraph", categoria: "Motion Graphics", descripcion: "Animated graphics with titles, transitions and visual elements designed to reinforce the message and give the video personality." },
+      { titulo: "Mixed Media edit", categoria: "Mixed Media", descripcion: "An edit that blends live footage, animated graphics and textures to create a unique, eye-catching look." }
+    ],
+    servicios: [
+      { nombre: "Video editing", texto: "Pacing, rhythm and color for your videos.", incluye: ["Cuts and pacing", "Color correction", "Audio mixing"] },
+      { nombre: "AMVs and edits", texto: "Edits with music, sync and style.", incluye: ["Beat sync", "Transitions", "Effects"] },
+      { nombre: "Reels and social media", texto: "Vertical content made for social platforms.", incluye: ["9:16 format", "Subtitles", "Versions per platform"] },
+      { nombre: "Motion graphics", texto: "Animated graphics that build identity.", incluye: ["Animated titles", "Lower thirds", "Animated logos"] },
+      { nombre: "Effects and animation", texto: "VFX and animation for specific scenes.", incluye: ["Compositing", "Tracking", "Visual effects"] },
+      { nombre: "Custom projects", texto: "Work tailored to your idea.", incluye: ["Initial consultation", "Proposal", "Custom quote"] }
+    ],
+    paquetes: [
+      { entrega: "2 days", incluye: ["Simple editing", "Music, zooms and subtitles", "Full HD delivery"] },
+      { entrega: "2 days", incluye: ["Advanced editing", "Effects and transitions", "Color correction", "Full HD delivery"] },
+      { entrega: "4 days", incluye: ["Full editing", "Motion graphics", "Sound design", "4K delivery"] }
+    ],
+    packs: [
+      { nombre: "10-reel BASIC pack", detalle: "10 reels at the BASIC level" },
+      { nombre: "5-reel STANDARD pack", detalle: "5 reels at the STANDARD level" },
+      { nombre: "10-reel STANDARD pack", detalle: "10 reels at the STANDARD level" },
+      { nombre: "10-reel PREMIUM pack", detalle: "10 reels at the PREMIUM level" }
+    ],
+    youtube: {
+      nombre: "Video editing for YouTube",
+      detalle: "Medium to advanced editing.",
+      incluye: ["Cuts and pacing", "Silence and mistake removal", "Music and sound effects", "Audio cleanup and mixing", "Subtitles", "Transitions and effects", "Color correction", "Titles and simple motion graphics", "Zooms and supporting visuals"],
+      unidad: "per minute of video"
+    },
+    publicidad: [
+      { nombre: "Animated ads", detalle: "Motion graphics style spots with a background voice and plenty of creative effects.", incluye: ["Motion graphics style", "Background voice", "Creative effects"] },
+      { nombre: "Logo design", detalle: "Logos designed to give your brand identity." },
+      { nombre: "Logo animation", detalle: "Your logo in motion, for videos, social media and ads." },
+      { nombre: "Graphic design (flyers)", detalle: "Flyer design and graphic pieces for your brand." }
+    ]
   }
 };
 /* ============================ FIN DE CONFIG ============================ */
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const C=CONFIG;
+const C=LANG==="en"?mix(CONFIG,CONFIG.en):CONFIG;
 if(!C.mostrarAvisosDeEjemplo)document.body.classList.add("demo-off");
 $$("[data-brand]").forEach(e=>e.textContent=C.marca);
 document.title=C.marca+" | Video Editor & Motion Designer";
@@ -304,18 +476,23 @@ $("#sg").innerHTML=C.servicios.map((s,i)=>`<article class="sv"><span class="n">$
 $("#kg").innerHTML=C.paquetes.map(p=>`<article class="pk${p.destacado?" f":""}"><h3>${esc(p.nombre)}</h3><div class="pr">${esc(p.precio)} <small>USD por reel</small></div><ul>${p.incluye.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="mt"><span>Entrega<b>${esc(p.entrega)}</b></span><span>Revisiones<b>${esc(p.revisiones)}</b></span></div><button class="btn ${p.destacado?"p":""}" data-wa="Hola, me interesa el paquete ${esc(p.nombre)}. ¿Podemos hablar?">Solicitar este paquete</button></article>`).join("");
 const pks=C.packs||[];
 $("#pkl").classList.toggle("two",pks.length%2===0&&pks.length%3!==0);
-if(pks.length)$("#pkl").innerHTML=pks.map(p=>`<article class="pkc"><div><h4>${esc(p.nombre)}</h4><p>${esc(p.detalle)}</p></div><div class="pp">${esc(p.precio)} <small>USD</small></div><button class="btn p" data-wa="Hola, me interesa el ${esc(p.nombre)}. ¿Podemos hablar?">Solicitar este pack</button></article>`).join("");
+if(pks.length)$("#pkl").innerHTML=pks.map(p=>`<article class="pkc${p.destacado?" hl":""}"><div><h4>${esc(p.nombre)}</h4><p>${esc(p.detalle)}</p></div><div class="pp">${esc(p.precio)} <small>USD</small></div><button class="btn p" data-wa="Hola, me interesa el ${esc(p.nombre)}. ¿Podemos hablar?">Solicitar este pack</button></article>`).join("");
 else $("#rp").remove();
 const y=C.youtube;
-if(y)$("#ytl").innerHTML=`<article class="pkc"><div><h4>${esc(y.nombre)}</h4><p>${esc(y.detalle)}</p></div><div class="pp">${esc(y.precio)} <small>USD ${esc(y.unidad)}</small></div><button class="btn p" data-wa="Hola, quiero cotizar la edición de un video para YouTube. ¿Podemos hablar?">Solicitar este servicio</button></article>`;
+if(y)$("#ytl").innerHTML=`<article class="pkc"><div><h4>${esc(y.nombre)}</h4><p>${esc(y.detalle)}</p>${(y.incluye||[]).length?`<ul class="chips">${y.incluye.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}</div><div class="pp">${esc(y.precio)} <small>USD ${esc(y.unidad)}</small></div><button class="btn p" data-wa="Hola, quiero cotizar la edición de un video para YouTube. ¿Podemos hablar?">Solicitar este servicio</button></article>`;
 else $("#yt").remove();
+const ad=C.publicidad||[];
+$("#adl").classList.toggle("two",ad.length%2===0&&ad.length%3!==0);
+if(ad.length)$("#adl").innerHTML=ad.map(a=>`<article class="pkc"><div><h4>${esc(a.nombre)}</h4><p>${esc(a.detalle)}</p>${(a.incluye||[]).length?`<ul class="chips">${a.incluye.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}</div>${a.precio?`<div class="pp">${esc(a.precio)} <small>USD ${esc(a.unidad||"")}</small></div>`:`<div class="pp ask">A consultar</div>`}<button class="btn p" data-wa="Hola, quiero cotizar: ${esc(a.nombre)}. ¿Podemos hablar?">Pedir presupuesto</button></article>`).join("");
+else $("#ad").remove();
 
 /* Enlaces a redes (avisan si todavía no los configuraste) */
 const waOk=/^\d{8,15}$/.test(C.whatsapp), igOk=C.instagram&&C.instagram!=="TU_USUARIO";
 $$("[data-ig]").forEach(a=>{a.href=igOk?"https://instagram.com/"+C.instagram.replace("@",""):"#contacto";
-  if(!igOk)a.addEventListener("click",()=>alert("Configurá tu usuario de Instagram en CONFIG (campo instagram)."));});
+  if(!igOk)a.addEventListener("click",()=>alert("Configura tu usuario de Instagram en CONFIG (campo instagram)."));});
+$$("[data-tt]").forEach(a=>{if(C.tiktok)a.href="https://www.tiktok.com/@"+C.tiktok.replace("@","");else(a.closest("li")||a).remove()});
 document.addEventListener("click",e=>{const b=e.target.closest("[data-wa]");if(!b)return;
-  if(!waOk)return alert("Configurá tu número en CONFIG (campo whatsapp): solo números, con código de país.");
+  if(!waOk)return alert("Configura tu número en CONFIG (campo whatsapp): solo números, con código de país.");
   window.open("https://wa.me/"+C.whatsapp+"?text="+encodeURIComponent(b.dataset.wa.replace(/&amp;/g,"&")),"_blank","noopener");});
 
 /* Video: YouTube, Vimeo o archivo local */
@@ -324,7 +501,7 @@ function info(u){if(!u)return null;let m=u.match(/(?:youtu\.be\/|v=|embed\/|shor
   m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);if(m)return{k:"f",src:"https://player.vimeo.com/video/"+m[1]+"?autoplay=1"};
   return{k:"v",src:u};}
 function mount(box,u){const i=info(u);
-  if(!i){box.innerHTML='<p>Todavía no hay un video cargado. Agregá el link en CONFIG.</p>';return;}
+  if(!i){box.innerHTML='<p>Todavía no hay un video cargado. Agrega el link en CONFIG.</p>';return;}
   box.innerHTML=i.k==="f"?`<iframe src="${esc(i.src)}" title="Video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`:`<video src="${esc(i.src)}" controls playsinline autoplay preload="metadata"></video>`;}
 
 
@@ -338,6 +515,13 @@ $("#pg").addEventListener("click",e=>{const b=e.target.closest(".pc");if(!b)retu
   $("#mt").textContent=p.titulo;mv.className=p.formato==="vertical"?"vt":"";mount(mv,p.video);md.showModal();});
 const close=()=>{md.close();mv.innerHTML=""};
 $("#mx").onclick=close;md.addEventListener("click",e=>{if(e.target===md)close()});md.addEventListener("cancel",()=>mv.innerHTML="");
+
+/* Logotipos (se abre con un click) */
+const lgs=C.logotipos||[];
+if(lgs.length){$("#lgg").innerHTML=lgs.map((l,i)=>{const t=l.imagen?"button":"div";return `<${t} class="lt" style="--i:${i}"${l.imagen?` data-i="${i}" aria-label="${esc(l.titulo)}"`:""}><div class="lb">${l.imagen?`<img src="${esc(l.imagen)}" alt="${esc(l.titulo)}" loading="lazy">`:`<span class="big" aria-hidden="true">${String(i+1).padStart(2,"0")}</span>`}</div><span class="cap">${esc(l.titulo)}</span></${t}>`}).join("");
+  $("#lgg").style.setProperty("--c",[4,6,3,5,2].find(c=>lgs.length%c===0)||4); /* columnas que dividen la cantidad: sin huecos */
+  $("#lgg").addEventListener("click",e=>{const b=e.target.closest("button.lt");if(!b)return;const l=lgs[b.dataset.i];$("#mt").textContent=l.titulo;mv.className="";mv.innerHTML=`<img src="${esc(l.imagen)}" alt="${esc(l.titulo)}">`;md.showModal()})}
+else $("#lgd").remove();
 
 /* Menú móvil */
 const mn=$("#menu"),bg=$("#bg");
@@ -353,6 +537,42 @@ const tc=$("#tc"),t0=performance.now();
 if(!matchMedia("(prefers-reduced-motion:reduce)").matches)(function tick(){const f=Math.floor(((performance.now()-t0)/1000%9)*24),p=n=>String(n).padStart(2,"0");
   tc.textContent=`00:00:${p(Math.floor(f/24))}:${p(f%24)}`;requestAnimationFrame(tick)})();
 if(matchMedia("(prefers-reduced-motion:reduce)").matches)tc.textContent="00:00:00:00";
+
+/* Desenfoque progresivo: cada bloque se aclara a medida que sube hasta la mitad de la pantalla (suave, sin molestar) */
+const rvEls=$$(".rv");let rvTick=false;
+const rvRun=()=>{rvTick=false;const H=innerHeight,rest=document.documentElement.scrollHeight-H-scrollY,span=Math.max(48,Math.min(H*.5,rest+48));
+  rvEls.forEach(el=>{const t=el.getBoundingClientRect().top-(el._tr||0);let p=Math.max(0,Math.min(1,(H-t)/span));p=p*p*(3-2*p);
+    if(el._p===p)return;el._p=p;const st=el.style;
+    if(p>=1){st.opacity=st.filter=st.transform="";el._tr=0}
+    else{el._tr=(1-p)*22;st.opacity=(.3+.7*p).toFixed(3);st.filter="blur("+((1-p)*6).toFixed(2)+"px)";st.transform="translateY("+el._tr.toFixed(1)+"px)"}})};
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches){const q=()=>{if(!rvTick){rvTick=true;requestAnimationFrame(rvRun)}};addEventListener("scroll",q,{passive:true});addEventListener("resize",q);rvRun()}
+
+/* Pestañas de precios (se ocultan las que no tienen contenido) y aparición escalonada */
+$$("#tabs button").forEach(b=>{if(!$("#"+b.dataset.t))b.remove()});
+$("#tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;$$("#tabs button").forEach(x=>{const on=x===b;x.classList.toggle("on",on);x.setAttribute("aria-selected",on);$("#"+x.dataset.t).classList.toggle("on",on)})});
+$$(".pc.rv").forEach((e,i)=>e.style.transitionDelay=(i%4)*90+"ms");
+
+/* Interactividad: barra de progreso, enlace activo del menú e inclinación al pasar el cursor */
+const sp=$("#sp");
+const up=$("#up"),onS=()=>{sp.style.transform="scaleX("+Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight))+")";document.documentElement.style.setProperty("--hp",Math.min(1,scrollY/(innerHeight*.7)).toFixed(3));up.classList.toggle("show",scrollY>innerHeight)};
+addEventListener("scroll",onS,{passive:true});onS();
+up.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+const mls=$$("#menu a"),so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)mls.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+$$("main section[id]").forEach(x=>so.observe(x));
+if(matchMedia("(hover:hover) and (pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches)
+  $$(".pc .th,.lb,.av").forEach(el=>{el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect();el.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*8+"deg");el.style.setProperty("--rx",-((e.clientY-r.top)/r.height-.5)*8+"deg")});el.addEventListener("pointerleave",()=>{el.style.removeProperty("--rx");el.style.removeProperty("--ry")})});
+
+/* Textos fijos de la página en inglés + botón de idioma */
+const lg=$("#lg");lg.textContent=LANG==="es"?"EN":"ES";lg.setAttribute("aria-label",LANG==="es"?"Switch to English":"Cambiar a español");
+lg.onclick=()=>{try{localStorage.setItem("lang",LANG==="es"?"en":"es")}catch(e){}location.reload()};
+if(LANG==="en"){
+const EN={"Inicio":"Home","Servicios":"Services","Precios":"Pricing","Sobre mí":"About","Contacto":"Contact","Trabajemos juntos":"Let’s work together","Ver mis trabajos":"View my work","Contactarme":"Contact me","SECUENCIA 01":"SEQUENCE 01","Trabajos seleccionados":"Selected work","Una muestra de proyectos recientes. Toca uno para verlo.":"A selection of recent projects. Tap one to watch it.","Lo que puedo hacer por tu proyecto.":"What I can do for your project.","Precios en USD":"Pricing in USD","Los precios son por reel. Elige un paquete y escríbeme directamente por WhatsApp.":"Prices are per reel. Pick a package and message me directly on WhatsApp.","Packs de reels":"Reel packs","Si necesitas varios reels, elige un pack.":"Need several reels? Pick a pack.","Videos para YouTube":"YouTube videos","Logotipos":"Logos","Por reel":"Per reel","Publicidad":"Advertising","Volver arriba":"Back to top","Ver ejemplos":"See examples","Publicidad y logotipos":"Advertising and logos","Piezas gráficas y animadas para tu marca.":"Graphic and animated pieces for your brand.","A consultar":"On request","Se cobra por cada minuto de video.":"Priced per minute of video.","Proyecto personalizado":"Custom project","¿Necesitas algo distinto? Cuéntame qué tienes en mente y armamos un presupuesto a medida.":"Need something different? Tell me what you have in mind and we’ll put together a custom quote.","Pedir presupuesto":"Request a quote","Los precios son orientativos. Los proyectos complejos pueden requerir un presupuesto personalizado.":"Prices are approximate. Complex projects may require a custom quote.","Detrás de cada edición hay una idea":"Behind every edit there’s an idea","¿Tienes un proyecto en mente?":"Got a project in mind?","Cuéntame tu idea y hagámosla realidad.":"Tell me your idea and let’s make it happen.","Escríbeme por WhatsApp":"Message me on WhatsApp","Sígueme en Instagram":"Follow me on Instagram","Sígueme en TikTok":"Follow me on TikTok",". Todos los derechos reservados.":". All rights reserved.","Entrega":"Delivery","Revisiones":"Revisions","Solicitar este paquete":"Request this package","Solicitar este pack":"Request this pack","Solicitar este servicio":"Request this service","USD por reel":"USD per reel","Principal":"Main","Abrir menú":"Open menu","Programas que uso":"Tools I use","Reproductor de video":"Video player","Cerrar":"Close","Hola, quisiera un presupuesto para un proyecto personalizado":"Hi, I’d like a quote for a custom project","Hola, vi tu portfolio y me gustaría consultar sobre una edición":"Hi, I saw your portfolio and I’d like to ask about an edit","Hola, quiero cotizar la edición de un video para YouTube. ¿Podemos hablar?":"Hi, I’d like a quote for editing a YouTube video. Can we talk?"};
+const RX=[[/^Hola, me interesa el paquete (.*)\. ¿Podemos hablar\?$/,"Hi, I’m interested in the $1 package. Can we talk?"],[/^Hola, me interesa el (.*)\. ¿Podemos hablar\?$/,"Hi, I’m interested in the $1. Can we talk?"],[/^Hola, quiero cotizar: (.*)\. ¿Podemos hablar\?$/,"Hi, I’d like a quote for: $1. Can we talk?"],[/^Logotipo (\d+)$/,"Logo $1"],[/^Ver (.*)$/,"View $1"],[/^Portada de (.*)$/,"Cover of $1"],[/^Foto de (.*)$/,"Photo of $1"]];
+const tx=v=>{const k=v.trim();let r=EN[k];if(!r)for(const[x,y]of RX)if(x.test(k)){r=k.replace(x,y);break}return r?v.replace(k,()=>r):v};
+const wk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let nd;
+while(nd=wk.nextNode())if(nd.parentNode.tagName!=="SCRIPT")nd.nodeValue=tx(nd.nodeValue);
+$$("[aria-label],[alt],[data-wa]").forEach(e=>["aria-label","alt","data-wa"].forEach(a=>{if(e.hasAttribute(a)&&!(a==="aria-label"&&e.id==="lg"))e.setAttribute(a,tx(e.getAttribute(a)))}));
+}
 </script>
 </body>
 </html>
