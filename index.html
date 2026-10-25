@@ -136,6 +136,15 @@ dialog[open]{animation:pop .3s ease}
 .cust{margin-top:1.25rem;border:1px dashed #3a3a40;border-radius:16px;padding:1.75rem;display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between}
 .cust p{color:var(--mut);max-width:56ch}
 .fine{color:var(--mut);font-size:.85rem;margin-top:1.25rem}
+.rp{margin-top:3rem}.rp>h3{font-size:1.6rem}.rp .lead{margin:.4rem 0 1.25rem}
+.pkl{display:grid;gap:1rem;grid-template-columns:1fr}
+@media(min-width:760px){.pkl{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}}
+@media(min-width:760px){.pkl.two{grid-template-columns:1fr 1fr}}
+.pkc{border:1px solid var(--ln);border-radius:16px;padding:1.5rem 1.75rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 1.5rem;background:var(--bg2)}
+.pkc h4{font-size:1.25rem;letter-spacing:-.02em}
+.pkc p{color:var(--mut);font-size:.9rem}
+.pkc .pp{font-size:2rem;font-weight:800;letter-spacing:-.04em}
+.pkc .pp small{font-size:.95rem;color:var(--mut);font-weight:400;letter-spacing:0}
 /* SOBRE MI */
 .ab{display:grid;gap:clamp(2rem,6vw,5rem);grid-template-columns:1fr}
 @media(min-width:860px){.ab{grid-template-columns:5fr 7fr;align-items:center}}
@@ -192,8 +201,10 @@ footer a:hover{color:var(--fg)}
 </div></section>
 
 <section id="precios"><div class="w">
-  <div class="head rv"><h2>Precios en USD</h2><p class="lead">Elegí un paquete y escribime directo por WhatsApp.</p><span class="note">Precios de ejemplo: poné los tuyos en CONFIG</span></div>
+  <div class="head rv"><h2>Precios en USD</h2><p class="lead">Los precios son por reel. Elegí un paquete y escribime directo por WhatsApp.</p><span class="note">Precios de ejemplo: poné los tuyos en CONFIG</span></div>
   <div class="kg rv" id="kg"></div>
+  <div class="rp rv" id="rp"><h3>Packs de reels</h3><p class="lead">Si necesitás varios reels, elegí un pack.</p><div class="pkl" id="pkl"></div></div>
+  <div class="rp rv" id="yt"><h3>Videos para YouTube</h3><p class="lead">Se cobra por cada minuto de video.</p><div class="pkl" id="ytl"></div></div>
   <div class="cust rv"><div><h3>Proyecto personalizado</h3><p>¿Necesitás algo distinto? Contame qué tenés en mente y armamos un presupuesto a medida.</p></div><button class="btn p" data-wa="Hola, quisiera un presupuesto para un proyecto personalizado">Pedir presupuesto</button></div>
   <p class="fine">Los precios son orientativos. Los proyectos complejos pueden requerir un presupuesto personalizado.</p>
 </div></section>
@@ -260,7 +271,19 @@ const CONFIG = {
     { nombre: "BASIC", precio: "$10", entrega: "2 días", revisiones: "1", destacado: false, incluye: ["Edición simple", "Música, zooms y subtítulos", "Entrega en Full HD"] },
     { nombre: "STANDARD", precio: "$15", entrega: "2 días", revisiones: "2", destacado: true, incluye: ["Edición avanzada", "Efectos y transiciones", "Corrección de color", "Entrega en Full HD"] },
     { nombre: "PREMIUM", precio: "$25", entrega: "4 días", revisiones: "4", destacado: false, incluye: ["Edición completa", "Motion graphics", "Diseño de sonido", "Entrega en 4K"] }
-  ]
+  ],
+  packs: [   // packs de varios reels (precio TOTAL del pack). Copiá la línea para agregar más. Con [] la sección se oculta
+    { nombre: "Pack 10 reels BASIC", detalle: "10 reels con el nivel BASIC", precio: "$60" },
+    { nombre: "Pack 5 reels STANDARD", detalle: "5 reels con el nivel STANDARD", precio: "$50" },
+    { nombre: "Pack 10 reels STANDARD", detalle: "10 reels con el nivel STANDARD", precio: "$90" },
+    { nombre: "Pack 10 reels PREMIUM", detalle: "10 reels con el nivel PREMIUM", precio: "$120" }
+  ],
+  youtube: {   // apartado "Videos para YouTube". Para ocultarlo, borrá este bloque entero
+    nombre: "Edición de video para YouTube",
+    detalle: "Edición de nivel medio a complejo.",
+    precio: "$4",
+    unidad: "por minuto de video"
+  }
 };
 /* ============================ FIN DE CONFIG ============================ */
 
@@ -278,7 +301,14 @@ $("#av").innerHTML=C.avatar?`<img src="${esc(C.avatar)}" alt="Foto de ${esc(C.ma
 
 /* Servicios y paquetes */
 $("#sg").innerHTML=C.servicios.map((s,i)=>`<article class="sv"><span class="n">${String(i+1).padStart(2,"0")}</span><h3>${esc(s.nombre)}</h3><p>${esc(s.texto)}</p><ul>${s.incluye.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("");
-$("#kg").innerHTML=C.paquetes.map(p=>`<article class="pk${p.destacado?" f":""}"><h3>${esc(p.nombre)}</h3><div class="pr">${esc(p.precio)} <small>USD</small></div><ul>${p.incluye.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="mt"><span>Entrega<b>${esc(p.entrega)}</b></span><span>Revisiones<b>${esc(p.revisiones)}</b></span></div><button class="btn ${p.destacado?"p":""}" data-wa="Hola, me interesa el paquete ${esc(p.nombre)}. ¿Podemos hablar?">Solicitar este paquete</button></article>`).join("");
+$("#kg").innerHTML=C.paquetes.map(p=>`<article class="pk${p.destacado?" f":""}"><h3>${esc(p.nombre)}</h3><div class="pr">${esc(p.precio)} <small>USD por reel</small></div><ul>${p.incluye.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="mt"><span>Entrega<b>${esc(p.entrega)}</b></span><span>Revisiones<b>${esc(p.revisiones)}</b></span></div><button class="btn ${p.destacado?"p":""}" data-wa="Hola, me interesa el paquete ${esc(p.nombre)}. ¿Podemos hablar?">Solicitar este paquete</button></article>`).join("");
+const pks=C.packs||[];
+$("#pkl").classList.toggle("two",pks.length%2===0&&pks.length%3!==0);
+if(pks.length)$("#pkl").innerHTML=pks.map(p=>`<article class="pkc"><div><h4>${esc(p.nombre)}</h4><p>${esc(p.detalle)}</p></div><div class="pp">${esc(p.precio)} <small>USD</small></div><button class="btn p" data-wa="Hola, me interesa el ${esc(p.nombre)}. ¿Podemos hablar?">Solicitar este pack</button></article>`).join("");
+else $("#rp").remove();
+const y=C.youtube;
+if(y)$("#ytl").innerHTML=`<article class="pkc"><div><h4>${esc(y.nombre)}</h4><p>${esc(y.detalle)}</p></div><div class="pp">${esc(y.precio)} <small>USD ${esc(y.unidad)}</small></div><button class="btn p" data-wa="Hola, quiero cotizar la edición de un video para YouTube. ¿Podemos hablar?">Solicitar este servicio</button></article>`;
+else $("#yt").remove();
 
 /* Enlaces a redes (avisan si todavía no los configuraste) */
 const waOk=/^\d{8,15}$/.test(C.whatsapp), igOk=C.instagram&&C.instagram!=="TU_USUARIO";
