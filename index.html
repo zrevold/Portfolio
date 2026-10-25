@@ -42,7 +42,7 @@ h2{font-size:clamp(2.2rem,6vw,4.6rem);max-width:14ch}
 .note{display:inline-block;margin-top:1rem;padding:.35rem .8rem;border:1px dashed #5b5b52;border-radius:6px;font:.78rem var(--mono);color:#c9b97a}
 .demo-off .note,.demo-off .tag{display:none}
 /* NAV */
-header{position:sticky;top:0;z-index:50;background:rgba(18,18,20,.8);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);border-bottom:1px solid var(--ln)}
+header{position:sticky;top:0;z-index:50;background:rgba(18,18,20,.8);backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);border-bottom:1px solid var(--ln)}
 .nav{max-width:1240px;margin:auto;padding:.7rem var(--pad);display:flex;align-items:center;gap:1.5rem;min-height:64px}
 .logo{font-weight:800;letter-spacing:-.03em;font-size:1.2rem;margin-right:auto}
 .nav ul{display:flex;gap:1.75rem}
@@ -110,23 +110,33 @@ h1{font-size:clamp(2.9rem,10.5vw,8.6rem);margin:1.1rem 0 1.5rem;max-width:12ch}
 .lg summary small:after{content:"+";display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--ln);border-radius:50%;font-size:1.3rem;line-height:1;color:var(--fg);transition:transform .3s,background .3s,border-color .3s}
 .lg[open] summary small:after{transform:rotate(45deg);background:var(--ac);border-color:var(--ac);color:var(--bg)}
 .lg.cl[open] summary small:after{transform:none;background:none;border-color:var(--ln);color:var(--fg)}
-.lgg{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr);padding:0 1.5rem 1.5rem;animation:fadein .5s ease}
-@media(min-width:680px){.lgg{grid-template-columns:repeat(var(--c,4),1fr)}}
-@media(max-width:679px){.lgg>.lt:last-child:nth-child(odd){grid-column:1/-1}.lgg>.lt:last-child:nth-child(odd) .lb{aspect-ratio:2/1}}
+/* logotipos: un solo video centrado + menú; al terminar uno pasa al siguiente */
 @keyframes fadein{from{opacity:0}}
-.lt{display:block;width:100%;text-align:left}
-button.lt{cursor:zoom-in}
-.lb{aspect-ratio:1/1;border:1px solid var(--ln);border-radius:12px;background:#161618;display:grid;place-items:center;overflow:hidden;transition:border-color .3s}
-button.lt:hover .lb{border-color:var(--ac)}
-.lb img{width:100%;height:100%;object-fit:contain;padding:1rem}
-.lb .big{font-size:clamp(2.5rem,7vw,4rem);font-weight:800;color:rgba(255,255,255,.07);letter-spacing:-.05em}
-.lt .cap{display:block;margin-top:.5rem;color:var(--mut);font-size:.88rem}
-#mv img{width:100%;height:100%;object-fit:contain}
+.lp{padding:0 1.5rem 1.5rem;animation:fadein .5s ease}
+.lpv{width:100%;max-width:min(760px,calc(72vh*var(--arv,1.7778)));margin:0 auto;overflow:hidden;border:1px solid var(--ln);border-radius:14px;background:#000}
+.lpr{display:flex;transform:translateX(calc(var(--i,0)*-100%));transition:transform .75s cubic-bezier(.2,.7,.2,1)}
+.lps{position:relative;flex:0 0 100%;min-width:0;aspect-ratio:var(--ar,16/9);background:linear-gradient(135deg,hsl(var(--h,250) 30% 14%),#101012)}
+.lps>*{position:absolute;inset:0;width:100%;height:100%}
+.lps iframe,.lps video{border:0;background:#000}
+.lpp{display:grid;place-items:center;cursor:pointer}
+.lpp>*{grid-area:1/1}
+.lpp img{width:100%;height:100%;object-fit:cover}
+.lpp .big{font-size:clamp(4rem,12vw,8rem);font-weight:800;color:rgba(255,255,255,.07);letter-spacing:-.05em}
+.lpp:hover .play,.lpp:focus-visible .play{transform:scale(1.1);background:var(--ac);color:var(--bg);border-color:var(--ac)}
+.lpe{display:grid;place-items:center;padding:1rem;text-align:center;color:var(--mut)}
+.lpm{position:relative;display:flex;gap:.5rem;overflow-x:auto;margin-top:1rem;padding-bottom:4px;scrollbar-width:none}
+.lpm::-webkit-scrollbar{display:none}
+.lpm:before,.lpm:after{content:"";margin:auto}
+.lpb{flex:none;display:flex;align-items:center;gap:.55rem;min-height:44px;padding:.5rem 1.1rem;border:1px solid var(--ln);border-radius:100px;color:var(--mut);font-weight:600;white-space:nowrap;transition:background .25s,color .25s,border-color .25s,transform .45s cubic-bezier(.34,1.56,.64,1)}
+.lpb i{font:normal .72rem var(--mono);color:var(--ac);transition:color .25s}
+.lpb:hover{color:var(--fg);border-color:var(--fg)}
+.lpb:active{transform:scale(.92)}
+.lpb.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.lpb.on i{color:var(--bg);opacity:.6}
 /* interactividad: escala y leve inclinación al pasar el cursor */
-.lb{position:relative}
-.pc .th,.lb,.av{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,1));transition:transform .25s ease-out,border-color .3s;will-change:transform}
-.pc:hover .th,.lt:hover .lb,.av:hover{--s:1.04;z-index:3}
-.pc:active .th,button.lt:active .lb{--s:.97}
+.pc .th,.av{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,1));transition:transform .25s ease-out,border-color .3s;will-change:transform}
+.pc:hover .th,.av:hover{--s:1.04;z-index:3}
+.pc:active .th{--s:.97}
 .pk,.pkc{transition:transform .3s ease,box-shadow .3s}
 .pk:hover,.pkc:hover{transform:translateY(-5px)}
 .btn:active{transform:scale(.97)}
@@ -135,7 +145,7 @@ button.lt:hover .lb{border-color:var(--ac)}
 .js .rv{opacity:0;transform:translateY(28px) scale(.98);transition:opacity .9s ease,filter .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 .js .rv.in{opacity:1;filter:none;transform:none}
 @media(prefers-reduced-motion:reduce){.js .rv{opacity:1;filter:none;transform:none}}
-@media(prefers-reduced-motion:no-preference){.hero .w{opacity:calc(1 - var(--hp,0)*.85);filter:blur(calc(var(--hp,0)*1.5px));transform:translateY(calc(var(--hp,0)*-36px))}}
+@media(prefers-reduced-motion:no-preference){.hero .w{opacity:calc(1 - var(--hp,0)*.85);filter:blur(calc(var(--hp,0)*.6px));transform:translateY(calc(var(--hp,0)*-36px))}}
 .tabs{display:flex;gap:.5rem;overflow-x:auto;margin-bottom:2rem;padding-bottom:4px;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tabs button{flex:none;min-height:44px;padding:.5rem 1.3rem;border:1px solid var(--ln);border-radius:100px;color:var(--mut);font-weight:600;transition:background .25s,color .25s,border-color .25s}
@@ -153,7 +163,7 @@ button.lt:hover .lb{border-color:var(--ac)}
 .btn{transition:background .25s,color .25s,border-color .25s,transform .45s cubic-bezier(.34,1.56,.64,1)}
 .lang{transition:color .2s,border-color .2s,transform .45s cubic-bezier(.34,1.56,.64,1)}
 .btn:active,.lang:active{transform:scale(.92)}
-.pc .th,.lb,.av{transition:transform .45s cubic-bezier(.34,1.4,.64,1),border-color .3s}
+.pc .th,.av{transition:transform .45s cubic-bezier(.34,1.4,.64,1),border-color .3s}
 .pk,.pkc{transition:transform .5s cubic-bezier(.34,1.56,.64,1),box-shadow .3s}
 .tabs button{transition:background .25s,color .25s,border-color .25s,transform .45s cubic-bezier(.34,1.56,.64,1)}
 .tabs button:active{transform:scale(.9)}
@@ -161,14 +171,12 @@ button.lt:hover .lb{border-color:var(--ac)}
 .pn.on{animation:pnin .7s cubic-bezier(.34,1.56,.64,1)}
 .js .rv{transition:opacity .9s ease,filter .9s ease,transform 1s cubic-bezier(.34,1.35,.64,1)}
 .lg summary small:after{transition:transform .55s cubic-bezier(.34,1.56,.64,1),background .3s,border-color .3s}
-.lg[open] .lt{animation:bin .65s cubic-bezier(.34,1.56,.64,1) both;animation-delay:calc(var(--i,0)*70ms)}
 .sv .n{display:inline-block;transform-origin:left;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
 #up{transition:opacity .3s,transform .6s cubic-bezier(.34,1.56,.64,1),border-color .3s}
 dialog[open]{animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
 @media(max-width:860px){.nav ul.open{animation:dropin .5s cubic-bezier(.34,1.56,.64,1)}}
 @keyframes pop{from{opacity:0;transform:scale(.8)}}
 @keyframes pnin{from{opacity:0;transform:translateY(26px) scale(.95)}}
-@keyframes bin{from{opacity:0;transform:scale(.4) translateY(30px)}}
 @keyframes pop2{from{transform:scale(.8)}}
 @keyframes dropin{from{opacity:0;transform:translateY(-14px)}}
 /* el desenfoque ahora lo controla el scroll (JS), sin transiciones propias */
@@ -289,7 +297,7 @@ footer a:hover{color:var(--fg)}
 <section id="portfolio"><div class="w">
   <div class="head rv"><h2>Trabajos seleccionados</h2><p class="lead">Una muestra de proyectos recientes. Toca uno para verlo.</p><span class="note">Contenido de demostración: reemplazalo en CONFIG</span></div>
   <div class="pg" id="pg"></div>
-  <details class="lg rv" id="lgd"><summary><span>Logotipos</span><small>Ver ejemplos</small></summary><div class="lgg" id="lgg"></div></details>
+  <details class="lg rv" id="lgd"><summary><span>Logotipos</span><small>Ver ejemplos</small></summary><div class="lp" id="lp"></div></details>
 </div></section>
 
 <section id="servicios"><div class="w">
@@ -365,15 +373,17 @@ const CONFIG = {
     { titulo: "Edición con Mixed Media", categoria: "Mixed Media", descripcion: "Edición que mezcla imagen real, gráficos animados y texturas para crear una estética única y llamativa.", video: "https://vimeo.com/1239275088?fl=tl&fe=ec", portada: "img/Mixedmedia portada.png" },
   
   ],
-  logotipos: [   // ejemplos de logotipos (se abren con un click en "Logotipos"). imagen: ruta de tu archivo, ej "img/logo1.png". Vacío = espacio reservado. Con [] se oculta
-    { titulo: "Logotipo 1", imagen: "" },
-    { titulo: "Logotipo 2", imagen: "" },
-    { titulo: "Logotipo 3", imagen: "" },
-    { titulo: "Logotipo 4", imagen: "" },
-    { titulo: "Logotipo 5", imagen: "" },
-    { titulo: "Logotipo 6", imagen: "" },
-    { titulo: "Logotipo 7", imagen: "" },
-    { titulo: "Logotipo 8", imagen: "" }
+  logotiposFormato: "16/9",   // proporción de los videos de logotipos: "16/9" (horizontal), "1/1" (cuadrado), "9/16" (vertical), "4/5"...
+  logotipos: [   // un video por logotipo: se ve uno solo, centrado, con un menú debajo. Al terminar uno, pasa solo al siguiente. Con [] se oculta
+    // video: link de YouTube/Vimeo o archivo local ("videos/logo1.mp4"). portada: imagen opcional (en YouTube se usa su miniatura)
+    { titulo: "Logotipo 1", video: "", portada: "" },
+    { titulo: "Logotipo 2", video: "", portada: "" },
+    { titulo: "Logotipo 3", video: "", portada: "" },
+    { titulo: "Logotipo 4", video: "", portada: "" },
+    { titulo: "Logotipo 5", video: "", portada: "" },
+    { titulo: "Logotipo 6", video: "", portada: "" },
+    { titulo: "Logotipo 7", video: "", portada: "" },
+    { titulo: "Logotipo 8", video: "", portada: "" }
   ],
   servicios: [
     { nombre: "Edición de video", texto: "Montaje, ritmo y color para tus videos.", incluye: ["Cortes y ritmo", "Corrección de color", "Mezcla de audio"] },
@@ -504,8 +514,8 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-wa]");if(!
 
 /* Video: YouTube, Vimeo o archivo local */
 function info(u){if(!u)return null;let m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
-  if(m)return{k:"f",src:"https://www.youtube-nocookie.com/embed/"+m[1]+"?autoplay=1&rel=0",thumb:"https://i.ytimg.com/vi/"+m[1]+"/hqdefault.jpg"};
-  m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);if(m)return{k:"f",src:"https://player.vimeo.com/video/"+m[1]+"?autoplay=1"};
+  if(m)return{k:"f",p:"yt",src:"https://www.youtube-nocookie.com/embed/"+m[1]+"?autoplay=1&rel=0",thumb:"https://i.ytimg.com/vi/"+m[1]+"/hqdefault.jpg"};
+  m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);if(m)return{k:"f",p:"vm",src:"https://player.vimeo.com/video/"+m[1]+"?autoplay=1"};
   return{k:"v",src:u};}
 function mount(box,u){const i=info(u);
   if(!i){box.innerHTML='<p>Todavía no hay un video cargado. Agrega el link en CONFIG.</p>';return;}
@@ -523,11 +533,41 @@ $("#pg").addEventListener("click",e=>{const b=e.target.closest(".pc");if(!b)retu
 const close=()=>{md.close();mv.innerHTML=""};
 $("#mx").onclick=close;md.addEventListener("click",e=>{if(e.target===md)close()});md.addEventListener("cancel",()=>mv.innerHTML="");
 
-/* Logotipos (se abre con un click) */
+/* Logotipos: un solo video centrado + menú. Al terminar un video, el carrusel avanza al siguiente */
 const lgs=C.logotipos||[];
-if(lgs.length){$("#lgg").innerHTML=lgs.map((l,i)=>{const t=l.imagen?"button":"div";return `<${t} class="lt" style="--i:${i}"${l.imagen?` data-i="${i}" aria-label="${esc(l.titulo)}"`:""}><div class="lb">${l.imagen?`<img src="${esc(l.imagen)}" alt="${esc(l.titulo)}" loading="lazy">`:`<span class="big" aria-hidden="true">${String(i+1).padStart(2,"0")}</span>`}</div><span class="cap">${esc(l.titulo)}</span></${t}>`}).join("");
-  $("#lgg").style.setProperty("--c",[4,6,3,5,2].find(c=>lgs.length%c===0)||4); /* columnas que dividen la cantidad: sin huecos */
-  $("#lgg").addEventListener("click",e=>{const b=e.target.closest("button.lt");if(!b)return;const l=lgs[b.dataset.i];$("#mt").textContent=l.titulo;mv.className="";mv.innerHTML=`<img src="${esc(l.imagen)}" alt="${esc(l.titulo)}">`;md.showModal()})}
+if(lgs.length){
+  const[ra,rb]=String(C.logotiposFormato||"16/9").split("/").map(Number),okr=ra>0&&rb>0,lp=$("#lp");
+  lp.style.setProperty("--ar",okr?ra+"/"+rb:"16/9");lp.style.setProperty("--arv",(okr?ra/rb:16/9).toFixed(4));
+  lp.innerHTML=`<div class="lpv"><div class="lpr" id="lpr">${lgs.map((l,i)=>{const v=info(l.video),t=l.portada||(v&&v.thumb);
+    return `<div class="lps" style="--h:${[250,215,280,190,310,230][i%6]}"><button class="lpp" aria-label="Ver ${esc(l.titulo)}">${t?`<img src="${esc(t)}" alt="Portada de ${esc(l.titulo)}">`:`<span class="big" aria-hidden="true">${String(i+1).padStart(2,"0")}</span>`}<span class="play" aria-hidden="true"></span></button></div>`}).join("")}</div></div><div class="lpm" id="lpm">${lgs.map((l,i)=>`<button class="lpb" data-i="${i}"><i>${String(i+1).padStart(2,"0")}</i>${esc(l.titulo)}</button>`).join("")}</div>`;
+  const sl=$$("#lp .lps"),mb=$$("#lp .lpb"),rail=$("#lpr"),lm=$("#lpm");let cur=0;
+  sl.forEach(s=>s._p=s.firstElementChild);
+  const unmount=s=>{if(s._d){try{s._d()}catch(e){}s._d=null}if(s.firstElementChild!==s._p)s.replaceChildren(s._p)};
+  /* reproductores de Vimeo y YouTube: solo se cargan al reproducir, para detectar cuándo termina el video */
+  const ld={},lib=u=>ld[u]||(ld[u]=new Promise((ok,no)=>{const e=document.createElement("script");e.src=u;e.onload=ok;e.onerror=no;document.head.appendChild(e)}));
+  const ytApi=()=>window.YT&&YT.Player?Promise.resolve():new Promise((ok,no)=>{const p=window.onYouTubeIframeAPIReady;window.onYouTubeIframeAPIReady=()=>{p&&p();ok()};lib("https://www.youtube.com/iframe_api").catch(no)});
+  const mnt=i=>{const s=sl[i],v=info(lgs[i].video),end=()=>{if(cur===i)go(i+1,true,true)};
+    if(!v){const p=document.createElement("p");p.className="lpe";p.textContent="Todavía no hay un video cargado. Agrega el link en CONFIG.";s.replaceChildren(p);return}
+    let el;
+    if(v.k==="v"){el=document.createElement("video");el.src=v.src;el.controls=el.autoplay=el.playsInline=true;el.preload="metadata";el.addEventListener("ended",end)}
+    else{el=document.createElement("iframe");el.src=v.src+(v.p==="yt"?"&enablejsapi=1":"");el.title="Video";el.allow="autoplay; fullscreen; picture-in-picture";el.allowFullscreen=true;
+      if(v.p==="vm")lib("https://player.vimeo.com/api/player.js").then(()=>{if(s.firstElementChild!==el)return;const p=new Vimeo.Player(el);p.on("ended",end);s._d=()=>p.destroy().catch(()=>{})}).catch(()=>{});
+      else ytApi().then(()=>{if(s.firstElementChild!==el)return;const p=new YT.Player(el,{events:{onStateChange:e=>{if(e.data===0)end()}}});s._d=()=>p.destroy()}).catch(()=>{})}
+    s.replaceChildren(el)};
+  /* go(n, reproducir, suave): suave = el video que terminó se queda hasta que el carrusel termina de moverse */
+  function go(n,play,soft){n=(n+sl.length)%sl.length;cur=n;
+    if(!soft)sl.forEach((s,i)=>{if(i!==n)unmount(s)});
+    rail.style.setProperty("--i",n);
+    sl.forEach((s,i)=>s.inert=i!==n);
+    mb.forEach((b,i)=>{b.classList.toggle("on",i===n);b.setAttribute("aria-current",i===n?"true":"false")});
+    const b=mb[n];lm.scrollTo({left:b.offsetLeft-(lm.clientWidth-b.offsetWidth)/2,behavior:"smooth"});
+    if(play)mnt(n);
+    if(soft)setTimeout(()=>sl.forEach((s,i)=>{if(i!==cur)unmount(s)}),850)}
+  lp.addEventListener("click",e=>{const p=e.target.closest(".lpp"),b=e.target.closest(".lpb");
+    if(p)mnt(sl.indexOf(p.parentNode));
+    else if(b){const n=+b.dataset.i;if(n!==cur)go(n,true);else if(sl[n].firstElementChild===sl[n]._p)mnt(n)}});
+  $("#lgd").addEventListener("toggle",e=>{if(!e.target.open)sl.forEach(unmount)});
+  go(0,false)}
 else $("#lgd").remove();
 
 /* Logotipos: se expande hacia abajo al abrir y se pliega al cerrar */
@@ -567,7 +607,7 @@ const rvRun=()=>{rvTick=false;const H=innerHeight,rest=document.documentElement.
   rvEls.forEach(el=>{const t=el.getBoundingClientRect().top-(el._tr||0);let p=Math.max(0,Math.min(1,(H-t)/span));p=p*p*(3-2*p);
     if(el._p===p)return;el._p=p;const st=el.style;
     if(p>=1){st.opacity=st.filter=st.transform="";el._tr=0}
-    else{el._tr=(1-p)*22;st.opacity=(.3+.7*p).toFixed(3);st.filter="blur("+((1-p)*1).toFixed(2)+"px)";st.transform="translateY("+el._tr.toFixed(1)+"px)"}})};
+    else{el._tr=(1-p)*22;st.opacity=(.3+.7*p).toFixed(3);st.filter="blur("+((1-p)*.4).toFixed(2)+"px)";st.transform="translateY("+el._tr.toFixed(1)+"px)"}})};
 if(!matchMedia("(prefers-reduced-motion:reduce)").matches){const q=()=>{if(!rvTick){rvTick=true;requestAnimationFrame(rvRun)}};addEventListener("scroll",q,{passive:true});addEventListener("resize",q);rvRun()}
 
 /* Pestañas de precios (se ocultan las que no tienen contenido) y aparición escalonada */
@@ -583,14 +623,14 @@ up.onclick=()=>scrollTo({top:0,behavior:"smooth"});
 const mls=$$("#menu a"),so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)mls.forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
 $$("main section[id]").forEach(x=>so.observe(x));
 if(matchMedia("(hover:hover) and (pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches)
-  $$(".pc .th,.lb,.av").forEach(el=>{el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect();el.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*8+"deg");el.style.setProperty("--rx",-((e.clientY-r.top)/r.height-.5)*8+"deg")});el.addEventListener("pointerleave",()=>{el.style.removeProperty("--rx");el.style.removeProperty("--ry")})});
+  $$(".pc .th,.av").forEach(el=>{el.addEventListener("pointermove",e=>{const r=el.getBoundingClientRect();el.style.setProperty("--ry",((e.clientX-r.left)/r.width-.5)*8+"deg");el.style.setProperty("--rx",-((e.clientY-r.top)/r.height-.5)*8+"deg")});el.addEventListener("pointerleave",()=>{el.style.removeProperty("--rx");el.style.removeProperty("--ry")})});
 
 /* Textos fijos de la página en inglés + botón de idioma */
 const lg=$("#lg");lg.textContent=LANG==="es"?"EN":"ES";lg.setAttribute("aria-label",LANG==="es"?"Switch to English":"Cambiar a español");
 lg.onclick=()=>{try{localStorage.setItem("lang",LANG==="es"?"en":"es")}catch(e){}location.reload()};
 if(LANG==="en"){
 const EN={"Inicio":"Home","Servicios":"Services","Precios":"Pricing","Sobre mí":"About","Contacto":"Contact","Trabajemos juntos":"Let’s work together","Ver mis trabajos":"View my work","Contactarme":"Contact me","SECUENCIA 01":"SEQUENCE 01","Trabajos seleccionados":"Selected work","Una muestra de proyectos recientes. Toca uno para verlo.":"A selection of recent projects. Tap one to watch it.","Lo que puedo hacer por tu proyecto.":"What I can do for your project.","Precios en USD":"Pricing in USD","Los precios son por reel. Elige un paquete y escríbeme directamente por WhatsApp.":"Prices are per reel. Pick a package and message me directly on WhatsApp.","Packs de reels":"Reel packs","Si necesitas varios reels, elige un pack.":"Need several reels? Pick a pack.","Videos para YouTube":"YouTube videos","Logotipos":"Logos","Por reel":"Per reel","Publicidad":"Advertising","Volver arriba":"Back to top","Ver ejemplos":"See examples","Publicidad y logotipos":"Advertising and logos","Piezas gráficas y animadas para tu marca.":"Graphic and animated pieces for your brand.","A consultar":"On request","Se cobra por cada minuto de video.":"Priced per minute of video.","Proyecto personalizado":"Custom project","¿Necesitas algo distinto? Cuéntame qué tienes en mente y armamos un presupuesto a medida.":"Need something different? Tell me what you have in mind and we’ll put together a custom quote.","Pedir presupuesto":"Request a quote","Los precios son orientativos. Los proyectos complejos pueden requerir un presupuesto personalizado.":"Prices are approximate. Complex projects may require a custom quote.","Detrás de cada edición hay una idea":"Behind every edit there’s an idea","¿Tienes un proyecto en mente?":"Got a project in mind?","Cuéntame tu idea y hagámosla realidad.":"Tell me your idea and let’s make it happen.","Escríbeme por WhatsApp":"Message me on WhatsApp","Sígueme en Instagram":"Follow me on Instagram","Sígueme en TikTok":"Follow me on TikTok",". Todos los derechos reservados.":". All rights reserved.","Entrega":"Delivery","Revisiones":"Revisions","Solicitar este paquete":"Request this package","Solicitar este pack":"Request this pack","Solicitar este servicio":"Request this service","USD por reel":"USD per reel","Principal":"Main","Abrir menú":"Open menu","Programas que uso":"Tools I use","Reproductor de video":"Video player","Cerrar":"Close","Hola, quisiera un presupuesto para un proyecto personalizado":"Hi, I’d like a quote for a custom project","Hola, vi tu portfolio y me gustaría consultar sobre una edición":"Hi, I saw your portfolio and I’d like to ask about an edit","Hola, quiero cotizar la edición de un video para YouTube. ¿Podemos hablar?":"Hi, I’d like a quote for editing a YouTube video. Can we talk?"};
-const RX=[[/^Hola, me interesa el paquete (.*)\. ¿Podemos hablar\?$/,"Hi, I’m interested in the $1 package. Can we talk?"],[/^Hola, me interesa el (.*)\. ¿Podemos hablar\?$/,"Hi, I’m interested in the $1. Can we talk?"],[/^Hola, quiero cotizar: (.*)\. ¿Podemos hablar\?$/,"Hi, I’d like a quote for: $1. Can we talk?"],[/^Logotipo (\d+)$/,"Logo $1"],[/^Ver (.*)$/,"View $1"],[/^Portada de (.*)$/,"Cover of $1"],[/^Foto de (.*)$/,"Photo of $1"]];
+const RX=[[/^Hola, me interesa el paquete (.*)\. ¿Podemos hablar\?$/,"Hi, I’m interested in the $1 package. Can we talk?"],[/^Hola, me interesa el (.*)\. ¿Podemos hablar\?$/,"Hi, I’m interested in the $1. Can we talk?"],[/^Hola, quiero cotizar: (.*)\. ¿Podemos hablar\?$/,"Hi, I’d like a quote for: $1. Can we talk?"],[/^Logotipo (\d+)$/,"Logo $1"],[/^Ver Logotipo (\d+)$/,"View Logo $1"],[/^Ver (.*)$/,"View $1"],[/^Portada de Logotipo (\d+)$/,"Cover of Logo $1"],[/^Portada de (.*)$/,"Cover of $1"],[/^Foto de (.*)$/,"Photo of $1"]];
 const tx=v=>{const k=v.trim();let r=EN[k];if(!r)for(const[x,y]of RX)if(x.test(k)){r=k.replace(x,y);break}return r?v.replace(k,()=>r):v};
 const wk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let nd;
 while(nd=wk.nextNode())if(nd.parentNode.tagName!=="SCRIPT")nd.nodeValue=tx(nd.nodeValue);
