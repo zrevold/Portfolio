@@ -108,6 +108,9 @@ h1{font-size:clamp(2.9rem,10.5vw,8.6rem);margin:1.1rem 0 1.5rem;max-width:12ch}
 @media(min-width:680px){.pg{grid-template-columns:repeat(12,1fr);gap:2rem 1.25rem}.pc,.pc.v{grid-column:span 6}}
 @media(min-width:760px){.pc.v{grid-column:span 3}}
 @media(min-width:1000px){.pc.w7{grid-column:span 7}.pc.w5{grid-column:span 5}}
+/* solo reels: el JS elige las columnas (--c) según el ancho y la cantidad, para que no queden filas incompletas */
+.pg.pgv{grid-template-columns:repeat(var(--c,2),minmax(0,360px));justify-content:center;gap:clamp(1.5rem,3.5vw,2.25rem) clamp(.75rem,2vw,1.25rem)}
+.pg.pgv .pc,.pg.pgv .pc.v{grid-column:auto}
 .pc{text-align:left;display:block;width:100%}
 .v .pm{flex-direction:column;gap:.1rem}
 .v .pm h3{font-size:clamp(1rem,1.7vw,1.35rem)}
@@ -127,48 +130,6 @@ h1{font-size:clamp(2.9rem,10.5vw,8.6rem);margin:1.1rem 0 1.5rem;max-width:12ch}
 .pm h3{font-size:1.35rem;letter-spacing:-.02em}
 .pm span{color:var(--ac);font-size:.85rem;white-space:nowrap}
 .pc p{color:var(--mut);font-size:.95rem;margin-top:.2rem}
-.lg{margin-top:clamp(3rem,7vw,5rem);-webkit-user-select:none;user-select:none}
-.lg>h3{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:clamp(1.25rem,3vw,2rem)}
-/* logotipos: video cuadrado 1:1 centrado, con los vecinos asomando a los costados; al terminar uno pasa al siguiente */
-.lp{padding:0}
-.lpv{--S:max(180px,min(520px,72vh,calc(100% - 7.5rem)));position:relative;display:grid;justify-items:center;overflow:hidden}
-.lps{grid-area:1/1;position:relative;width:var(--S);aspect-ratio:1/1;border:1px solid var(--ln);border-radius:14px;overflow:hidden;background:linear-gradient(135deg,hsl(var(--h,250) 30% 14%),#101012);opacity:0;pointer-events:none;transform:scale(.6);transition:transform .75s cubic-bezier(.2,.7,.2,1),opacity .75s ease}
-.lps[data-d="0"]{opacity:1;pointer-events:auto;z-index:3;transform:none}
-.lps[data-d="1"],.lps[data-d="-1"]{opacity:1;pointer-events:auto;z-index:2;cursor:pointer}
-.lps[data-d="2"],.lps[data-d="-2"]{opacity:1;pointer-events:auto;z-index:1;cursor:pointer}
-.lps[data-d="1"]{transform:translateX(34%) scale(.84)}
-.lps[data-d="-1"]{transform:translateX(-34%) scale(.84)}
-.lps[data-d="2"]{transform:translateX(50%) scale(.7)}
-.lps[data-d="-2"]{transform:translateX(-50%) scale(.7)}
-.lps[data-d="3"]{transform:translateX(50%) scale(.6)}
-.lps[data-d="-3"]{transform:translateX(-50%) scale(.6)}
-.lps:after{content:"";position:absolute;inset:0;z-index:2;background:#121214;opacity:0;pointer-events:none;transition:opacity .75s ease}
-.lps[data-d="1"]:after,.lps[data-d="-1"]:after{opacity:.5}
-.lps[data-d="2"]:after,.lps[data-d="-2"]:after{opacity:.72}
-.lps>*{position:absolute;inset:0;width:100%;height:100%}
-.lps iframe,.lps video{border:0;background:#000}
-.lpp{display:grid;place-items:center;cursor:pointer}
-.lpp>*{grid-area:1/1}
-.lpp img{width:100%;height:100%;object-fit:cover}
-.lpp .big{font-size:clamp(4rem,12vw,8rem);font-weight:800;color:rgba(255,255,255,.07);letter-spacing:-.05em}
-.lpp:hover .play,.lpp:focus-visible .play{transform:scale(1.1);background:var(--ac);color:var(--bg);border-color:var(--ac)}
-.lps:not([data-d="0"]) .play{width:46px;height:46px}
-.lpe{display:grid;place-items:center;padding:1rem;text-align:center;color:var(--mut)}
-.lpa{position:absolute;top:50%;z-index:5;width:48px;height:48px;margin-top:-24px;border:1px solid var(--ln);border-radius:50%;background:rgba(25,25,28,.92);transition:border-color .3s,background .3s,transform .45s cubic-bezier(.34,1.56,.64,1)}
-.lpa.l{left:calc(50% - var(--S)/2 - 3.4rem)}
-.lpa.r{left:calc(50% + var(--S)/2 + .6rem)}
-.lpa:hover{border-color:var(--ac);background:var(--ac)}
-.lpa:active{transform:scale(.9)}
-.lpa:before{content:"";display:block;width:10px;height:10px;margin:auto;border-left:2px solid var(--fg);border-top:2px solid var(--fg)}
-.lpa.l:before{transform:translateX(2px) rotate(-45deg)}
-.lpa.r:before{transform:translateX(-2px) rotate(135deg)}
-.lpa:hover:before{border-color:var(--bg)}
-.lpd{display:flex;justify-content:center;flex-wrap:wrap;gap:.1rem;margin-top:.9rem}
-.lpd button{width:28px;height:28px;display:grid;place-items:center}
-.lpd button:before{content:"";width:8px;height:8px;border-radius:100px;background:#4a4a52;transition:width .4s cubic-bezier(.34,1.56,.64,1),background .25s}
-.lpd button:hover:before{background:var(--mut)}
-.lpd button.on:before{width:22px;background:var(--ac)}
-@media(max-width:679px){.lpv{--S:max(180px,min(520px,72vh,calc(100% - 5.5rem)))}.lpa{width:40px;height:40px;margin-top:-20px}.lpa.l{left:calc(50% - var(--S)/2 - 2.7rem)}.lpa.r{left:calc(50% + var(--S)/2 + .2rem)}}
 /* interactividad: escala y leve inclinación al pasar el cursor */
 .pc .th,.av{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--s,1));transition:transform .25s ease-out,border-color .3s;will-change:transform}
 .pc:hover .th,.av:hover{--s:1.04;z-index:3}
@@ -211,7 +172,6 @@ h1{font-size:clamp(2.9rem,10.5vw,8.6rem);margin:1.1rem 0 1.5rem;max-width:12ch}
 .tabs button.on{animation:pop2 .5s cubic-bezier(.34,1.56,.64,1)}
 .pn.on{animation:pnin .7s cubic-bezier(.34,1.56,.64,1)}
 .js .rv{transition:opacity .9s ease,transform 1s cubic-bezier(.34,1.35,.64,1)}
-.sv .n{display:inline-block;transform-origin:left;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
 #up{transition:opacity .3s,transform .6s cubic-bezier(.34,1.56,.64,1),border-color .3s}
 dialog[open]{animation:pop .5s cubic-bezier(.34,1.56,.64,1)}
 @media(max-width:860px){.nav ul.open{animation:dropin .5s cubic-bezier(.34,1.56,.64,1)}}
@@ -234,24 +194,8 @@ video{-webkit-touch-callout:none}
 #mv.vt{width:min(100%,calc((100vh - 8rem)*9/16));width:min(100%,calc((100dvh - 8rem)*9/16));aspect-ratio:9/16;margin:auto}
 #mv:has(iframe),#mv:has(video){padding:0}
 #mv:not(.vt){width:min(100%,calc((100vh - 6rem)*16/9));width:min(100%,calc((100dvh - 6rem)*16/9));margin:auto}
-/* SERVICIOS */
-.sg{display:grid;gap:1px;background:var(--ln);border:1px solid var(--ln);border-radius:14px;overflow:hidden;grid-template-columns:1fr}
-@media(min-width:680px){.sg{grid-template-columns:1fr 1fr}}
-@media(min-width:1000px){.sg{grid-template-columns:repeat(3,1fr)}}
-.sv{background:var(--bg);padding:1.15rem 1.3rem 1.25rem;display:grid;grid-template-columns:auto 1fr;column-gap:.7rem;align-content:start;transition:background .3s}
-.sv .n{font:.8rem var(--mono);color:var(--ac)}
-.sv h3{font-size:1.2rem;margin:0;letter-spacing:-.02em;line-height:1.15}
-.sv p,.sv ul{grid-column:2}
-.sv p{color:var(--mut);font-size:.88rem;line-height:1.45;margin-top:.3rem}
-.sv li,.pk li{color:#bdbdb5;font-size:.9rem;padding:.35rem 0 .35rem 1.2rem;border-top:1px solid var(--ln);position:relative}
-.sv ul{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
-.sv li:before,.pk li:before{content:"";position:absolute;left:0;top:1.05em;width:6px;height:1px;background:var(--ac)}
-/* servicios compactos: incluye como chips, número junto al título */
-.sv li{padding:.12rem .65rem;border:1px solid var(--ln);border-radius:100px;font-size:.78rem;line-height:1.5;color:var(--mut)}
-.sv li:before{content:none}
-.sv{-webkit-user-select:none;user-select:none;cursor:default}
-#servicios .w{padding-top:clamp(2.5rem,6vw,4rem);padding-bottom:clamp(2.5rem,6vw,4rem)}
-#servicios .head{margin-bottom:1.5rem}
+.pk li{color:#bdbdb5;font-size:.9rem;padding:.35rem 0 .35rem 1.2rem;border-top:1px solid var(--ln);position:relative}
+.pk li:before{content:"";position:absolute;left:0;top:1.05em;width:6px;height:1px;background:var(--ac)}
 /* PRECIOS */
 .kg{display:grid;gap:1.25rem;grid-template-columns:1fr}
 @media(min-width:900px){.kg{grid-template-columns:repeat(3,1fr);align-items:stretch}}
@@ -302,6 +246,14 @@ footer .f{max-width:1240px;margin:auto;padding:2.5rem var(--pad);display:flex;fl
 footer ul{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem}
 footer a:hover{color:var(--fg)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1}}
+/* ajustes de responsive: pestañas en varias líneas, botones de contacto parejos y pie sin tapar por el botón de subir */
+.tabs{flex-wrap:wrap;overflow:visible}
+@media(max-width:479px){.tabs{gap:.45rem}.tabs button{min-height:42px;padding:.45rem 1.05rem;font-size:.92rem}}
+.fine{margin-top:1.5rem}
+@media(max-width:560px){#contacto .cta .btn{width:100%;justify-content:center}}
+@media(max-width:679px){footer .f{padding-bottom:5.5rem}}
+@media(max-width:360px){h1{font-size:2.45rem}h2{font-size:2rem}}
+.kick{align-items:flex-start}.kick:before{flex:none;margin-top:.3em}
 </style>
 </head>
 <body>
@@ -315,7 +267,7 @@ footer a:hover{color:var(--fg)}
 <header><nav class="nav" aria-label="Principal">
   <a class="logo" href="#inicio" data-brand></a>
   <ul id="menu">
-    <li><a href="#inicio">Inicio</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#servicios">Servicios</a></li>
+    <li><a href="#inicio">Inicio</a></li><li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#precios">Precios</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#contacto">Contacto</a></li>
   </ul>
   <a class="btn p" href="#contacto">Trabajemos juntos</a>
@@ -346,13 +298,8 @@ footer a:hover{color:var(--fg)}
 <section id="portfolio"><div class="w">
   <div class="head rv"><h2>Trabajos seleccionados</h2><p class="lead">Una muestra de proyectos recientes. Toca uno para verlo.</p><span class="note">Contenido de demostración: reemplazalo en CONFIG</span></div>
   <div class="pg" id="pg"></div>
-  <div class="lg rv" id="lgd"><h3>Logotipos</h3><div class="lp" id="lp"></div></div>
 </div></section>
 
-<section id="servicios"><div class="w">
-  <div class="head rv"><h2>Servicios</h2><p class="lead">Lo que puedo hacer por tu proyecto.</p><span class="note">Servicios de ejemplo: editalos en CONFIG</span></div>
-  <div class="sg rv" id="sg"></div>
-</div></section>
 
 <section id="precios"><div class="w">
   <div class="head rv"><h2>Precios en USD</h2><p class="lead">Los precios son por reel. Elige un paquete y escríbeme directamente por WhatsApp.</p><span class="note">Precios de ejemplo: poné los tuyos en CONFIG</span></div>
@@ -379,7 +326,7 @@ footer a:hover{color:var(--fg)}
 
 <footer><div class="f rv">
   <div><b data-brand style="color:var(--fg)"></b><br><small>© <span id="yr"></span> <span data-brand></span>. Todos los derechos reservados.</small></div>
-  <ul><li><a href="#portfolio">Portfolio</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#precios">Precios</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#contacto">Contacto</a></li></ul>
+  <ul><li><a href="#portfolio">Portfolio</a></li><li><a href="#precios">Precios</a></li><li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#contacto">Contacto</a></li></ul>
   <ul class="soc"><li><a data-ig target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-ig"/></svg>Instagram</a></li><li><a data-tt target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-tt"/></svg>TikTok</a></li><li><button data-wa="Hola, vi tu portfolio y me gustaría consultar sobre una edición"><svg class="ic" aria-hidden="true" focusable="false"><use href="#i-wa"/></svg>WhatsApp</button></li></ul>
 </div></footer>
 
@@ -418,33 +365,12 @@ const CONFIG = {
     { titulo: "Reel editado", categoria: "Reel", descripcion: "Reel con subtítulos, zooms inteligentes, recortes precisos, efectos y SFX para mantener el ritmo y la atención en cada corte.", video: "https://vimeo.com/1239276925?fl=tl&fe=ec", portada: "img/Reel 1 Portada.png", formato: "vertical" },
     { titulo: "Reel editado", categoria: "Reel", descripcion: "Reel con subtítulos, zooms inteligentes, recortes precisos, efectos y SFX para mantener el ritmo y la atención en cada corte.", video: "https://vimeo.com/1239276924?fl=tl&fe=ec", portada: "img/Reel 3 Portada.png", formato: "vertical" },
     { titulo: "Reel editado", categoria: "Reel", descripcion: "Reel con subtítulos, zooms inteligentes, recortes precisos, efectos y SFX para mantener el ritmo y la atención en cada corte.", video: "https://vimeo.com/1239284901?fl=tl&fe=ec", portada: "img/Reel 4 Portada.png", formato: "vertical" },
-    { titulo: "MoGraph editado", categoria: "Motion Graphics", descripcion: "Gráficos animados con títulos, transiciones y elementos visuales diseñados para reforzar el mensaje y darle personalidad al video.", video: "https://vimeo.com/1239341822?share=copy&fl=sv&fe=ci", portada: "img/Mograph Portada.png" },
-    { titulo: "Edición con Mixed Media", categoria: "Mixed Media", descripcion: "Edición que mezcla imagen real, gráficos animados y texturas para crear una estética única y llamativa.", video: "https://vimeo.com/1239275088?fl=tl&fe=ec", portada: "img/Mixedmedia portada.png" },
+    { titulo: "Reel editado", categoria: "Reel", descripcion: "Reel con subtítulos, zooms inteligentes, recortes precisos, efectos y SFX para mantener el ritmo y la atención en cada corte.", video: "https://vimeo.com/1241050547?share=copy&fl=sv&fe=ci", portada: "img/portada1.png", formato: "vertical" },
+    { titulo: "Reel editado", categoria: "Reel", descripcion: "Reel con subtítulos, zooms inteligentes, recortes precisos, efectos y SFX para mantener el ritmo y la atención en cada corte.", video: "https://vimeo.com/1241050548?share=copy&fl=sv&fe=ci", portada: "img/portada2.png", formato: "vertical" }
   
   ],
-  logotipos: [   // un video por logotipo, TODOS cuadrados 1:1 (1080x1080). Se ve uno centrado con los otros asomando a los costados. Al terminar uno, pasa solo al siguiente. Con [] se oculta
-    // video: link de YouTube/Vimeo o archivo local ("videos/logo1.mp4"). portada: imagen opcional (cuadrada; en YouTube se usa su miniatura)
-    { titulo: "Logotipo 1", video: "img/Logo 1.mp4", portada: "img/logo1.png" },
-    { titulo: "Logotipo 2", video: "img/Logo 2.mp4", portada: "img/logo2.png" },
-    { titulo: "Logotipo 3", video: "img/Logo 3.mp4", portada: "img/logo3.png" },
-    { titulo: "Logotipo 4", video: "img/Logo 4.mp4", portada: "img/logo4.png" },
-    { titulo: "Logotipo 5", video: "img/Logo 5.mp4", portada: "img/logo5.png" },
-    { titulo: "Logotipo 6", video: "img/Logo 6.mp4", portada: "img/logo6.png" },
-    { titulo: "Logotipo 7", video: "img/Logo 7.mp4", portada: "img/logo7.png" },
-    { titulo: "Logotipo 8", video: "img/Logo 8.mp4", portada: "img/logo8.png" },
-    { titulo: "Logotipo 9", video: "img/Logo 9.mp4", portada: "img/logo9.png" },
-    { titulo: "Logotipo 10", video: "img/Logo 10.mp4", portada: "img/logo10.png" }
-  ],
-  servicios: [
-    { nombre: "Edición de video", texto: "Montaje, ritmo y color para tus videos.", incluye: ["Cortes y ritmo", "Corrección de color", "Mezcla de audio"] },
-    { nombre: "AMV y edits", texto: "Edits con música, sincronía y estilo.", incluye: ["Sincronía con el beat", "Transiciones", "Efectos"] },
-    { nombre: "Reels y redes", texto: "Contenido vertical pensado para redes.", incluye: ["Formato 9:16", "Subtítulos", "Versiones por red"] },
-    { nombre: "Motion graphics", texto: "Gráficos animados para dar identidad.", incluye: ["Títulos animados", "Lower thirds", "Logos animados"] },
-    { nombre: "Efectos y animaciones", texto: "VFX y animación para escenas puntuales.", incluye: ["Compositing", "Tracking", "Efectos visuales"] },
-    { nombre: "Proyectos personalizados", texto: "Un trabajo a medida de tu idea.", incluye: ["Consulta inicial", "Propuesta", "Presupuesto propio"] }
-  ],
   paquetes: [
-    { nombre: "BASIC", precio: "$10", entrega: "2 días", revisiones: "1", destacado: false, incluye: ["Edición simple", "Música, zooms y subtítulos", "Entrega en Full HD"] },
+    { nombre: "BASIC", precio: "$12", entrega: "2 días", revisiones: "1", destacado: false, incluye: ["Edición simple", "Música, zooms y subtítulos", "Entrega en Full HD"] },
     { nombre: "STANDARD", precio: "$15", entrega: "2 días", revisiones: "2", destacado: true, incluye: ["Edición avanzada", "Efectos y transiciones", "Corrección de color", "Entrega en Full HD"] },
     { nombre: "PREMIUM", precio: "$25", entrega: "4 días", revisiones: "4", destacado: false, incluye: ["Edición completa", "Motion graphics", "Diseño de sonido", "Entrega en 4K"] }
   ],
@@ -477,8 +403,8 @@ const CONFIG = {
     { nombre: "Animación de logotipos", detalle: "Tu logo en movimiento, para videos, redes y publicidades.", incluye: [], precio: "", unidad: "" },
     { nombre: "Diseño gráfico (flyers)", detalle: "Diseño de flyers y piezas gráficas para tu marca.", incluye: [], precio: "", unidad: "" }
   ],
-  /* VERSIÓN EN INGLÉS: va en el mismo orden que arriba (proyectos, servicios, paquetes, packs). Solo se escribe lo que cambia:
-     precios, videos, portadas y formatos se toman de la versión en español. Si agregás un proyecto/servicio nuevo, sumá su traducción en la misma posición. */
+  /* VERSIÓN EN INGLÉS: va en el mismo orden que arriba (proyectos, paquetes, packs). Solo se escribe lo que cambia:
+     precios, videos, portadas y formatos se toman de la versión en español. Si agregás un proyecto nuevo, sumá su traducción en la misma posición. */
   en: {
     titulo: "I turn ideas into visual experiences",
     descripcion: "I edit with rhythm, care about every detail and make sure every cut has a purpose. Quality and creativity in every project.",
@@ -487,17 +413,7 @@ const CONFIG = {
       "I adapt to what each client needs: I listen, propose and refine until you get the result you’re after. Communication stays clear throughout the process, delivery is fast and reliable, and the necessary revisions are included."
     ],
     proyectos: [
-      ...Array(4).fill({ titulo: "Edited reel", categoria: "Reel", descripcion: "Reel with subtitles, smart zooms, precise cuts, effects and SFX to keep the rhythm and attention on every cut." }),
-      { titulo: "Edited MoGraph", categoria: "Motion Graphics", descripcion: "Animated graphics with titles, transitions and visual elements designed to reinforce the message and give the video personality." },
-      { titulo: "Mixed Media edit", categoria: "Mixed Media", descripcion: "An edit that blends live footage, animated graphics and textures to create a unique, eye-catching look." }
-    ],
-    servicios: [
-      { nombre: "Video editing", texto: "Pacing, rhythm and color for your videos.", incluye: ["Cuts and pacing", "Color correction", "Audio mixing"] },
-      { nombre: "AMVs and edits", texto: "Edits with music, sync and style.", incluye: ["Beat sync", "Transitions", "Effects"] },
-      { nombre: "Reels and social media", texto: "Vertical content made for social platforms.", incluye: ["9:16 format", "Subtitles", "Versions per platform"] },
-      { nombre: "Motion graphics", texto: "Animated graphics that build identity.", incluye: ["Animated titles", "Lower thirds", "Animated logos"] },
-      { nombre: "Effects and animation", texto: "VFX and animation for specific scenes.", incluye: ["Compositing", "Tracking", "Visual effects"] },
-      { nombre: "Custom projects", texto: "Work tailored to your idea.", incluye: ["Initial consultation", "Proposal", "Custom quote"] }
+      ...Array(6).fill({ titulo: "Edited reel", categoria: "Reel", descripcion: "Reel with subtitles, smart zooms, precise cuts, effects and SFX to keep the rhythm and attention on every cut." }),
     ],
     paquetes: [
       { entrega: "2 days", incluye: ["Simple editing", "Music, zooms and subtitles", "Full HD delivery"] },
@@ -538,8 +454,7 @@ $("#ab").innerHTML=C.sobreMi.map(p=>`<p>${esc(p)}</p>`).join("");
 $("#tools").innerHTML=C.programas.map(p=>`<li>${esc(p)}</li>`).join("");
 $("#av").innerHTML=C.avatar?`<img src="${esc(C.avatar)}" alt="Foto de ${esc(C.marca)}" loading="lazy">`:`<span aria-hidden="true">${esc(C.marca.replace(/[\[\]]/g,"").charAt(0)||"V")}</span>`;
 
-/* Servicios y paquetes */
-$("#sg").innerHTML=C.servicios.map((s,i)=>`<article class="sv"><span class="n">${String(i+1).padStart(2,"0")}</span><h3>${esc(s.nombre)}</h3><p>${esc(s.texto)}</p><ul>${s.incluye.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></article>`).join("");
+/* Paquetes */
 $("#kg").innerHTML=C.paquetes.map(p=>`<article class="pk${p.destacado?" f":""}"><h3>${esc(p.nombre)}</h3><div class="pr">${esc(p.precio)} <small>USD por reel</small></div><ul>${p.incluye.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="mt"><span>Entrega<b>${esc(p.entrega)}</b></span><span>Revisiones<b>${esc(p.revisiones)}</b></span></div><button class="btn ${p.destacado?"p":""}" data-wa="Hola, me interesa el paquete ${esc(p.nombre)}. ¿Podemos hablar?">Solicitar este paquete</button></article>`).join("");
 const pks=C.packs||[];
 $("#pkl").classList.toggle("two",pks.length%2===0&&pks.length%3!==0);
@@ -580,45 +495,20 @@ let hc=0;
 $("#pg").innerHTML=C.proyectos.map((p,i)=>{const v=info(p.video),t=p.portada||(v&&v.thumb);
   const hue=[250,215,280,190,310,230][i%6],vt=p.formato==="vertical",ar=vt?"9/16":(p.formato&&p.formato!=="horizontal"?p.formato:"16/10"),cl=vt?"v":(hc++%4%3?"w5":"w7");
   return `<button class="pc ${cl} rv" data-i="${i}" aria-label="Ver ${esc(p.titulo)}"><div class="th" style="aspect-ratio:${esc(ar)};background:linear-gradient(135deg,hsl(${hue} 30% 14%),#101012)">${t?`<img src="${esc(t)}" alt="Portada de ${esc(p.titulo)}" loading="lazy">`:`<span class="big" aria-hidden="true">${String(i+1).padStart(2,"0")}</span>`}<span class="tag">DEMO</span><span class="play" aria-hidden="true"></span></div><div class="pm"><h3>${esc(p.titulo)}</h3><span>${esc(p.categoria)}</span></div><p>${esc(p.descripcion)}</p></button>`}).join("");
+/* Reels: columnas balanceadas según ancho y cantidad (nunca una fila a medias si hay una mejor opción) */
+{const pg=$("#pg"),cs=$$("#pg .pc");
+ if(cs.length&&cs.every(c=>c.classList.contains("v"))){
+  pg.classList.add("pgv");
+  const fit=()=>{const w=pg.clientWidth,mx=w<640?2:w<940?3:4,n=cs.length;let best=2,bs=1e9;
+    for(let c=Math.min(2,mx);c<=mx;c++){const e=(c-n%c)%c;if(e<=bs){bs=e;best=c}}
+    pg.style.setProperty("--c",best)};
+  fit();if(window.ResizeObserver)new ResizeObserver(fit).observe(pg);else addEventListener("resize",fit)}}
+
 const md=$("#md"),mv=$("#mv");
 $("#pg").addEventListener("click",e=>{const b=e.target.closest(".pc");if(!b)return;const p=C.proyectos[b.dataset.i];
   $("#mt").textContent=p.titulo;mv.className=p.formato==="vertical"?"vt":"";mount(mv,p.video);md.showModal();});
 const close=()=>{md.close();mv.innerHTML=""};
 $("#mx").onclick=close;md.addEventListener("click",e=>{if(e.target===md)close()});md.addEventListener("cancel",()=>mv.innerHTML="");
-
-/* Logotipos: video 1:1 centrado con los vecinos a los costados. Al terminar un video, el carrusel avanza al siguiente */
-const lgs=C.logotipos||[];
-if(lgs.length){
-  const lp=$("#lp"),n2=n=>String(n+1).padStart(2,"0");
-  lp.innerHTML=`<div class="lpv">${lgs.map((l,i)=>{const v=info(l.video),t=l.portada||(v&&v.thumb);
-    return `<div class="lps" style="--h:${[250,215,280,190,310,230][i%6]}"><button class="lpp" aria-label="Ver ${esc(l.titulo)}">${t?`<img src="${esc(t)}" alt="Portada de ${esc(l.titulo)}">`:`<span class="big" aria-hidden="true">${n2(i)}</span>`}<span class="play" aria-hidden="true"></span></button></div>`}).join("")}<button class="lpa l" aria-label="Video anterior"></button><button class="lpa r" aria-label="Video siguiente"></button></div><div class="lpd">${lgs.map((l,i)=>`<button data-i="${i}" aria-label="Ver ${esc(l.titulo)}"></button>`).join("")}</div>`;
-  const sl=$$("#lp .lps"),dots=$$("#lp .lpd button");let cur=0;
-  sl.forEach(s=>s._p=s.firstElementChild);
-  const unmount=s=>{if(s._d){try{s._d()}catch(e){}s._d=null}if(s.firstElementChild!==s._p)s.replaceChildren(s._p)};
-  /* reproductores de Vimeo y YouTube: solo se cargan al reproducir, para detectar cuándo termina el video */
-  const ld={},lib=u=>ld[u]||(ld[u]=new Promise((ok,no)=>{const e=document.createElement("script");e.src=u;e.onload=ok;e.onerror=no;document.head.appendChild(e)}));
-  const ytApi=()=>window.YT&&YT.Player?Promise.resolve():new Promise((ok,no)=>{const p=window.onYouTubeIframeAPIReady;window.onYouTubeIframeAPIReady=()=>{p&&p();ok()};lib("https://www.youtube.com/iframe_api").catch(no)});
-  const mnt=i=>{const s=sl[i],v=info(lgs[i].video),end=()=>{if(cur===i)go(i+1,true,true)};
-    if(!v){const p=document.createElement("p");p.className="lpe";p.textContent="Todavía no hay un video cargado. Agrega el link en CONFIG.";s.replaceChildren(p);return}
-    let el;
-    if(v.k==="v"){el=document.createElement("video");el.src=v.src;el.controls=el.autoplay=el.playsInline=true;el.setAttribute("controlsList","nodownload noremoteplayback");el.disablePictureInPicture=true;el.preload="metadata";el.addEventListener("ended",end)}
-    else{el=document.createElement("iframe");el.src=v.src+(v.p==="yt"?"&enablejsapi=1":"");el.title="Video";el.allow="autoplay; fullscreen; picture-in-picture";el.allowFullscreen=true;
-      if(v.p==="vm")lib("https://player.vimeo.com/api/player.js").then(()=>{if(s.firstElementChild!==el)return;const p=new Vimeo.Player(el);p.on("ended",end);s._d=()=>p.destroy().catch(()=>{})}).catch(()=>{});
-      else ytApi().then(()=>{if(s.firstElementChild!==el)return;const p=new YT.Player(el,{events:{onStateChange:e=>{if(e.data===0)end()}}});s._d=()=>p.destroy()}).catch(()=>{})}
-    s.replaceChildren(el)};
-  /* go(n, reproducir, suave): suave = el video que terminó se queda hasta que el carrusel termina de moverse */
-  function go(n,play,soft){n=(n+sl.length)%sl.length;cur=n;
-    if(!soft)sl.forEach((s,i)=>{if(i!==n)unmount(s)});
-    sl.forEach((s,i)=>{const d=Math.max(-3,Math.min(3,i-n));s.dataset.d=d;s.inert=Math.abs(d)>2});
-    dots.forEach((b,i)=>{b.classList.toggle("on",i===n);b.setAttribute("aria-current",i===n?"true":"false")});
-    if(play)mnt(n);
-    if(soft)setTimeout(()=>sl.forEach((s,i)=>{if(i!==cur)unmount(s)}),850)}
-  lp.addEventListener("click",e=>{const a=e.target.closest(".lpa"),d=e.target.closest(".lpd button"),p=e.target.closest(".lpp");
-    if(a)go(cur+(a.classList.contains("r")?1:-1),true);
-    else if(d){const n=+d.dataset.i;if(n!==cur)go(n,true);else if(sl[n].firstElementChild===sl[n]._p)mnt(n)}
-    else if(p){const i=sl.indexOf(p.parentNode);if(i!==cur)go(i,true);else mnt(i)}});
-  go(0,false)}
-else $("#lgd").remove();
 
 /* Menú móvil */
 const mn=$("#menu"),bg=$("#bg");
@@ -668,7 +558,7 @@ if(matchMedia("(hover:hover) and (pointer:fine)").matches&&!matchMedia("(prefers
 const lg=$("#lg");lg.textContent=LANG==="es"?"EN":"ES";lg.setAttribute("aria-label",LANG==="es"?"Switch to English":"Cambiar a español");
 lg.onclick=()=>{try{localStorage.setItem("lang",LANG==="es"?"en":"es")}catch(e){}location.reload()};
 if(LANG==="en"){
-const EN={"Inicio":"Home","Servicios":"Services","Precios":"Pricing","Sobre mí":"About","Contacto":"Contact","Trabajemos juntos":"Let’s work together","Ver mis trabajos":"View my work","Contactarme":"Contact me","SECUENCIA 01":"SEQUENCE 01","Trabajos seleccionados":"Selected work","Una muestra de proyectos recientes. Toca uno para verlo.":"A selection of recent projects. Tap one to watch it.","Lo que puedo hacer por tu proyecto.":"What I can do for your project.","Precios en USD":"Pricing in USD","Los precios son por reel. Elige un paquete y escríbeme directamente por WhatsApp.":"Prices are per reel. Pick a package and message me directly on WhatsApp.","Packs de reels":"Reel packs","Si necesitas varios reels, elige un pack.":"Need several reels? Pick a pack.","Videos para YouTube":"YouTube videos","Logotipos":"Logos","Por reel":"Per reel","Publicidad":"Advertising","Volver arriba":"Back to top","Ver ejemplos":"See examples","Publicidad y logotipos":"Advertising and logos","Piezas gráficas y animadas para tu marca.":"Graphic and animated pieces for your brand.","A consultar":"On request","Se cobra por cada minuto de video.":"Priced per minute of video.","Proyecto personalizado":"Custom project","¿Necesitas algo distinto? Cuéntame qué tienes en mente y armamos un presupuesto a medida.":"Need something different? Tell me what you have in mind and we’ll put together a custom quote.","Pedir presupuesto":"Request a quote","Los precios son orientativos. Los proyectos complejos pueden requerir un presupuesto personalizado.":"Prices are approximate. Complex projects may require a custom quote.","Detrás de cada edición hay una idea":"Behind every edit there’s an idea","¿Tienes un proyecto en mente?":"Got a project in mind?","Cuéntame tu idea y hagámosla realidad.":"Tell me your idea and let’s make it happen.","Escríbeme por WhatsApp":"Message me on WhatsApp","Sígueme en Instagram":"Follow me on Instagram","Sígueme en TikTok":"Follow me on TikTok",". Todos los derechos reservados.":". All rights reserved.","Entrega":"Delivery","Revisiones":"Revisions","Solicitar este paquete":"Request this package","Solicitar este pack":"Request this pack","Solicitar este servicio":"Request this service","USD por reel":"USD per reel","Principal":"Main","Abrir menú":"Open menu","Programas que uso":"Tools I use","Reproductor de video":"Video player","Cerrar":"Close","Video anterior":"Previous video","Video siguiente":"Next video","Hola, quisiera un presupuesto para un proyecto personalizado":"Hi, I’d like a quote for a custom project","Hola, vi tu portfolio y me gustaría consultar sobre una edición":"Hi, I saw your portfolio and I’d like to ask about an edit","Hola, quiero cotizar la edición de un video para YouTube. ¿Podemos hablar?":"Hi, I’d like a quote for editing a YouTube video. Can we talk?"};
+const EN={"Inicio":"Home","Precios":"Pricing","Sobre mí":"About","Contacto":"Contact","Trabajemos juntos":"Let’s work together","Ver mis trabajos":"View my work","Contactarme":"Contact me","SECUENCIA 01":"SEQUENCE 01","Trabajos seleccionados":"Selected work","Una muestra de proyectos recientes. Toca uno para verlo.":"A selection of recent projects. Tap one to watch it.","Precios en USD":"Pricing in USD","Los precios son por reel. Elige un paquete y escríbeme directamente por WhatsApp.":"Prices are per reel. Pick a package and message me directly on WhatsApp.","Packs de reels":"Reel packs","Si necesitas varios reels, elige un pack.":"Need several reels? Pick a pack.","Videos para YouTube":"YouTube videos","Por reel":"Per reel","Publicidad":"Advertising","Volver arriba":"Back to top","Publicidad y logotipos":"Advertising and logos","Piezas gráficas y animadas para tu marca.":"Graphic and animated pieces for your brand.","A consultar":"On request","Se cobra por cada minuto de video.":"Priced per minute of video.","Proyecto personalizado":"Custom project","¿Necesitas algo distinto? Cuéntame qué tienes en mente y armamos un presupuesto a medida.":"Need something different? Tell me what you have in mind and we’ll put together a custom quote.","Pedir presupuesto":"Request a quote","Los precios son orientativos. Los proyectos complejos pueden requerir un presupuesto personalizado.":"Prices are approximate. Complex projects may require a custom quote.","Detrás de cada edición hay una idea":"Behind every edit there’s an idea","¿Tienes un proyecto en mente?":"Got a project in mind?","Cuéntame tu idea y hagámosla realidad.":"Tell me your idea and let’s make it happen.","Escríbeme por WhatsApp":"Message me on WhatsApp","Sígueme en Instagram":"Follow me on Instagram","Sígueme en TikTok":"Follow me on TikTok",". Todos los derechos reservados.":". All rights reserved.","Entrega":"Delivery","Revisiones":"Revisions","Solicitar este paquete":"Request this package","Solicitar este pack":"Request this pack","Solicitar este servicio":"Request this service","USD por reel":"USD per reel","Principal":"Main","Abrir menú":"Open menu","Programas que uso":"Tools I use","Reproductor de video":"Video player","Cerrar":"Close","Video anterior":"Previous video","Video siguiente":"Next video","Hola, quisiera un presupuesto para un proyecto personalizado":"Hi, I’d like a quote for a custom project","Hola, vi tu portfolio y me gustaría consultar sobre una edición":"Hi, I saw your portfolio and I’d like to ask about an edit","Hola, quiero cotizar la edición de un video para YouTube. ¿Podemos hablar?":"Hi, I’d like a quote for editing a YouTube video. Can we talk?"};
 const RX=[[/^Hola, me interesa el paquete (.*)\. ¿Podemos hablar\?$/,"Hi, I’m interested in the $1 package. Can we talk?"],[/^Hola, me interesa el (.*)\. ¿Podemos hablar\?$/,"Hi, I’m interested in the $1. Can we talk?"],[/^Hola, quiero cotizar: (.*)\. ¿Podemos hablar\?$/,"Hi, I’d like a quote for: $1. Can we talk?"],[/^Logotipo (\d+)$/,"Logo $1"],[/^Ver Logotipo (\d+)$/,"View Logo $1"],[/^Ver (.*)$/,"View $1"],[/^Portada de Logotipo (\d+)$/,"Cover of Logo $1"],[/^Portada de (.*)$/,"Cover of $1"],[/^Foto de (.*)$/,"Photo of $1"]];
 const tx=v=>{const k=v.trim();let r=EN[k];if(!r)for(const[x,y]of RX)if(x.test(k)){r=k.replace(x,y);break}return r?v.replace(k,()=>r):v};
 const wk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let nd;
